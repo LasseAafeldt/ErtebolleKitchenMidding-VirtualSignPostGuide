@@ -79,6 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
+    <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
+    <Compile Include="Assets\Scripts\UI\OpenCooking.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\OpenOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
