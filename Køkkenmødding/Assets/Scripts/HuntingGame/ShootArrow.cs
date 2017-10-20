@@ -5,82 +5,53 @@ using UnityEngine;
 
 public class ShootArrow : MonoBehaviour {
 
-    private Transform target;
     public float speed;
     public Camera cam;
     public GameObject prefab;
-    //public GameObject arrow;
+    //public static int arrowDead = 3;
 
-    Vector3 dis;
-    Vector3 dir;
-    Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.0f);
+    //private Transform target;
+    //private Vector3 dis;
+    private Vector3 dir;
+    //private Vector3 tar;
+    //private Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.0f);
 
     void Start () {
-        target = new GameObject().transform;
+        //target = new GameObject().transform;// This creates New Game Object every time the mouse is clicked............
+        //Debug.Log("Creating new gameobject target");
         cam = Camera.main;
 	}
 	
 	
 	void FixedUpdate () {
-        if (Input.GetMouseButtonDown(0) && HuntingHandler.tutorial.activeInHierarchy == false)
-        {
-            setTarget();
-            //dir = new Vector3(0, 0, 10*speed);
-            dis = target.position - transform.position; //use something like screen2world position instead of target if we wanna make it better.
-            dir = (dis / dis.magnitude) * speed;
-
-
-            GameObject arrowClone = Instantiate(prefab, transform.position, transform.rotation);
-            //arrow.AddComponent<Rigidbody>();
-            
+        if (Input.GetMouseButtonDown(0) && HuntingHandler.tutorial.activeInHierarchy == false && HuntingHandler.pil.activeInHierarchy == true)
+        {        
+            GameObject arrowClone = Instantiate(prefab, transform.position, transform.GetChild(0).transform.rotation);
+            HuntingHandler.pil.SetActive(false); //make the arrow at the camera dissapear
+            dir = transform.TransformDirection(0, 0, 1* speed);
             arrowClone.transform.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
-
-            
-            
-            
+            //StartCoroutine(hitTimer(arrowDead));
+        }
+        if(HuntingHandler.pil.activeInHierarchy == false && HitDectection.animalDoStuff == false)
+        {
+            newArrow();
         }
 	}
-    void setTarget()
+    void newArrow()
     {
-        
-        RaycastHit hit;
-        Ray ray = cam.ViewportPointToRay(screenCenter);
-
-        if(Physics.Raycast(ray, out hit))
-        {
-            Debug.Log("I'm looking at " + hit.transform.name);
-            target.position = hit.transform.position;
-        }
-        else
-        {
-            Debug.Log("im looking at nothing");
-            target.position = GameObject.Find("MockPos").transform.position;
-        }
+        StartCoroutine(waitASec());
     }
 
-    Vector3 getTarget()
+    IEnumerator waitASec()
     {
-        return target.position;
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("Animal"))
+        yield return new WaitForSeconds(1);
+        Debug.Log("we have waited");
+        Debug.Log(HitDectection.animalDoStuff);
+        if (Input.GetMouseButtonDown(0) && HitDectection.animalDoStuff == false)
         {
-            Debug.Log("Hit!"); // do something when hitting the animal
+            Debug.Log("im inside");
+            Destroy(GameObject.Find("Arrow(Clone)"));
+            HuntingHandler.pil.SetActive(true);
         }
-        else
-        {
-            Debug.Log("Miss!"); // do something when missing the animal
-        }
-        Destroy(gameObject.GetComponent<Rigidbody>()); // makes arrow stick to whatever is hit
-        StartCoroutine(destroyArrow(2)); // destroys arrow clone after x seconds
-    }
-
-    IEnumerator destroyArrow(int x)
-    {
-        yield return new WaitForSeconds(x);
-        //Debug.Log(gameObject);
-        Destroy(gameObject);
     }
 }
