@@ -18,6 +18,7 @@ public class HitDectection : MonoBehaviour {
             Debug.Log("Miss!"); // do something when missing the animal
         }
         collision = true;
+        Debug.Log("im here");
         Destroy(gameObject.GetComponent<Rigidbody>()); // makes arrow stick to whatever is hit
         //StartCoroutine(destroyArrow(ShootArrow.arrowDead)); // destroys arrow clone after x seconds
     }

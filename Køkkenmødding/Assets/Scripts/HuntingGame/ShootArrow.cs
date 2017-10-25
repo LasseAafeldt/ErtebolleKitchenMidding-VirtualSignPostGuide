@@ -27,6 +27,9 @@ public class ShootArrow : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && HuntingHandler.tutorial.activeInHierarchy == false && HuntingHandler.pil.activeInHierarchy == true)
         {        
             GameObject arrowClone = Instantiate(prefab, transform.position, transform.GetChild(0).transform.rotation);
+
+            arrowClone.transform.localScale = new Vector3(0.2F, 0.2F, 0.2F); //if we change size of arrow fbx we need to change here aswell
+
             HuntingHandler.pil.SetActive(false); //make the arrow at the camera dissapear
             dir = transform.TransformDirection(0, 0, 1* speed);
             arrowClone.transform.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
@@ -45,11 +48,11 @@ public class ShootArrow : MonoBehaviour {
     IEnumerator waitASec()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("we have waited");
+
         Debug.Log(HitDectection.animalDoStuff);
         if (Input.GetMouseButtonDown(0) && HitDectection.animalDoStuff == false)
         {
-            Debug.Log("im inside");
+
             Destroy(GameObject.Find("Arrow(Clone)"));
             HuntingHandler.pil.SetActive(true);
         }
