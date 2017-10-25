@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Køkkenmødding/Assets/Models/pil.fbm.meta
 guid: 1d5d667b5e1fb7c4b9bb4cf49c19e6cb
 folderAsset: yes
 timeCreated: 1507636390
+=======
+guid: 017fe5ac921d7ee47a715c64bd0cee23
+folderAsset: yes
+timeCreated: 1507638023
+>>>>>>> a5b9adbc7443736792678bb63e53e04d763c5de8:Køkkenmødding/Assets/Models/pil.fbm.meta
 licenseType: Free
 DefaultImporter:
   userData: 

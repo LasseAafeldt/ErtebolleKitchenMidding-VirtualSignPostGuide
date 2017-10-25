@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 809e0ea0cc41d5f44b51b114b49108d9
 timeCreated: 1507636647
+=======
+guid: f37b4413e4016fa49af47d28082f91cc
+timeCreated: 1507634746
+>>>>>>> a5b9adbc7443736792678bb63e53e04d763c5de8
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -74,6 +79,10 @@ ModelImporter:
     2300000: frontRight1
     3300000: frontRight1
     4300000: frontRight1
+<<<<<<< HEAD
+=======
+    6400000: frontRight1
+>>>>>>> a5b9adbc7443736792678bb63e53e04d763c5de8
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -103,14 +112,24 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
+<<<<<<< HEAD
     addColliders: 0
+=======
+    addColliders: 1
+>>>>>>> a5b9adbc7443736792678bb63e53e04d763c5de8
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+<<<<<<< HEAD
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+=======
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 0
+>>>>>>> a5b9adbc7443736792678bb63e53e04d763c5de8
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
