@@ -83,13 +83,17 @@
     <Compile Include="Assets\Scripts\ChangeSceneHunting.cs" />
     <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\ChangeSceneMenu.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\CountDown.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\HitDectection.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\HuntingHandler.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Kills.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\MoveAnimal.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\MoveAnimalClockwise.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Reset.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\StartHunt.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\WinLose.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl2.cs" />

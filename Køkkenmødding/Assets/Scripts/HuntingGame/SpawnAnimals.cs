@@ -2,40 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SpawnAnimals : MonoBehaviour {
 
     public int animalsInScene;
-    public float rangeMin;
-    public float rangeMax;
+    //public float rangeMin;
+    //public float rangeMax;
 
+    public static int currentAnimals;
     public GameObject prefab;
-    private Vector2 dir;
-    private float dis;
+    public static int kills;
     private Vector3 pos;
-    private int currentAnimals;
+    private List<Vector3> spawnPoints;
+    private int childCount;
 
 	// Use this for initialization
 	void Start () {
+        kills = 0;
         currentAnimals = 0;
+        childCount = (int) GameObject.Find("SpawnPoints").transform.childCount;
+        spawnPoints = new List<Vector3>();
+        add2List();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(animalsInScene >= currentAnimals)
+		if(animalsInScene > currentAnimals)
         {
-            randomSpawn();
+            spawnAnimal();
         }
 	}
-
-    void randomSpawn()
+    public void spawnAnimal()
     {
-        dir = Random.insideUnitCircle;
-        dis = Random.Range(rangeMin, rangeMax);
-        pos = new Vector3(dir.x * dis, 1, dir.y * dis);
+        GameObject deerClone = Instantiate(prefab, chooseSpawn(), gameObject.transform.rotation); //do something about the toration
+        ++currentAnimals;
+        Debug.Log("animals: " + currentAnimals);
 
-        GameObject deerClone = Instantiate(prefab, pos, GameObject.Find("Animal_1").transform.rotation); //do something about the toration
-        currentAnimals++;
-
-        //maybe add a despawn timer? or despawn when traveled certain distance.
+    }
+    private Vector3 chooseSpawn()
+    {
+        pos = spawnPoints[Random.Range((int)1, childCount)];
+        Debug.Log(Random.Range((int)1, childCount));
+        return pos;
+    }
+    private void add2List()
+    {
+        for(int i = 0; i <= GameObject.Find("SpawnPoints").transform.childCount - 1; i++)
+        {
+            spawnPoints.Add(GameObject.Find("SpawnPoints").transform.GetChild(i).position);
+        }
     }
 }

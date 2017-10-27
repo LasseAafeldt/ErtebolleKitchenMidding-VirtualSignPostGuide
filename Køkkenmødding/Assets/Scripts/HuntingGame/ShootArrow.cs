@@ -42,14 +42,13 @@ public class ShootArrow : MonoBehaviour {
 	}
     void newArrow()
     {
-        StartCoroutine(waitASec());
+        StartCoroutine(waitASec(0F));
     }
 
-    IEnumerator waitASec()
+    IEnumerator waitASec(float x)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(x);
 
-        Debug.Log(HitDectection.animalDoStuff);
         if (Input.GetMouseButtonDown(0) && HitDectection.animalDoStuff == false)
         {
 
