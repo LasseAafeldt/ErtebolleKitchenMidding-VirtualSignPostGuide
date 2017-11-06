@@ -5,9 +5,18 @@ using UnityEngine.UI;
 
 public class Reset : MonoBehaviour {
     public Button but;
+    public Text tex;
 	// Use this for initialization
 	void Start () {
         but.onClick.AddListener(delegate { click(); });
+        if(ChooseLanguage.language == 0)//Danish
+        {
+            tex.text = "Spil igen!";
+        }
+        if(ChooseLanguage.language == 1)//English
+        {
+            tex.text = "Play again!";
+        }
     }
 	
     public void click()
@@ -22,6 +31,7 @@ public class Reset : MonoBehaviour {
 
             HitDectection.animalDoStuff = false; //name makes it seem like it's inverted but it's not
             SpawnAnimals.kills = 0;
+            HitDectection.hasHit = false;
             HuntingHandler.end.SetActive(false);
         }
     }

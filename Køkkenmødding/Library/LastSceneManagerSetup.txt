@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Levels/HuntingGame.unity
-=======
-- path: Assets/Scenes/Others/test.unity
->>>>>>> 324dbd3de691b245e65aa8555c9c179f932c8e64
+- path: Assets/Scenes/Others/Midding.unity
   isLoaded: 1
   isActive: 1

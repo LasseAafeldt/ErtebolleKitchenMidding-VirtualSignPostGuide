@@ -7,12 +7,19 @@ public class SoundToggle : MonoBehaviour {
 
 	// Use this for initialization
     public Toggle sound;
-    private int tempVolume = 1;
-    public static int volume = 10;
+    private float tempVolume;
+    public static float volume;
+    GameObject speaker;
+    GameObject mute;
 
 	void Start () {
-        this.sound.onValueChanged.AddListener(delegate { valueChanged(); });
-
+        speaker = GameObject.Find("SpeakerIcon");
+        mute = GameObject.Find("MuteIcon");
+        volume = GameObject.Find("Slider").GetComponent<Slider>().value;
+        sound.isOn = true;
+        speaker.SetActive(true);
+        mute.SetActive(false);
+        sound.onValueChanged.AddListener(delegate { valueChanged(); });
     }
 	
 	// Update is called once per frame
@@ -21,14 +28,19 @@ public class SoundToggle : MonoBehaviour {
     {
         if(sound.isOn == true)
         {
-            volume = tempVolume;
+            GameObject.Find("Slider").GetComponent<Slider>().value = tempVolume;
             Debug.Log("volume: " + volume);
+            speaker.SetActive(true);
+            mute.SetActive(false);
         }
         if(sound.isOn == false)
         {
             tempVolume = volume;
-            volume = 0;
+            //volume = 0;
+            GameObject.Find("Slider").GetComponent<Slider>().value = 0;
             Debug.Log("volume: " + volume);
+            speaker.SetActive(false);
+            mute.SetActive(true);
         }
     }
 }

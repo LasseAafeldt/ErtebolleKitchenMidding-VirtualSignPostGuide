@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Kills : MonoBehaviour {
+public class Kills : MonoBehaviour
+{
 
     public Text text;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         text.text = (SpawnAnimals.kills.ToString());
-	}
+    }
 }

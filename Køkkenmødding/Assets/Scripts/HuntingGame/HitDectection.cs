@@ -5,6 +5,7 @@ using UnityEngine;
 public class HitDectection : MonoBehaviour {
     public static bool collision = false;
     public static bool animalDoStuff = false;
+    public static bool hasHit = false;
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Animal"))
@@ -13,6 +14,7 @@ public class HitDectection : MonoBehaviour {
             // use animalDoStuff to stop the arrow shooting here.
             //animalDoStuff = true;
             StartCoroutine(destroyAnimal(col));
+            hasHit = true;
             SpawnAnimals.kills++;
         }
         else
