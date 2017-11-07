@@ -7,17 +7,19 @@ public class BålOpen : MonoBehaviour {
 
     CanvasGroup canvas;
     MeshRenderer model;
+
+    public Button but;
 	// Use this for initialization
 	void Start () {
+
         canvas = gameObject.transform.parent.GetChild(1).GetComponent<CanvasGroup>();
-        model = canvas.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
+        //model = canvas.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<MeshRenderer>();
         hideInfoUI();
+        but.onClick.AddListener(delegate { hideInfoUI(); });
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
@@ -31,7 +33,6 @@ public class BålOpen : MonoBehaviour {
         canvas.alpha = 1;
         canvas.interactable = true;
         canvas.blocksRaycasts = true;
-        model.enabled = true;
     }
 
     void hideInfoUI()
@@ -39,6 +40,5 @@ public class BålOpen : MonoBehaviour {
         canvas.alpha = 0;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
-        model.enabled = false;
     }
 }
