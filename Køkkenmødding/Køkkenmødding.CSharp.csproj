@@ -241,7 +241,6 @@
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\ray.cs" />
-    <Compile Include="Assets\Scripts\UI\OpenCooking.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
@@ -249,11 +248,6 @@
     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
     <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
-    <Compile Include="Assets\Scripts\UI\Texts\BålHeadlineText.cs" />
-    <Compile Include="Assets\Scripts\UI\Texts\BålText.cs" />
-    <Compile Include="Assets\Scripts\UI\Texts\KamText.cs" />
-    <Compile Include="Assets\Scripts\UI\Texts\KeramikText.cs" />
-    <Compile Include="Assets\Scripts\UI\Texts\ØstersText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

@@ -15,12 +15,12 @@ public class CloseOverlay : MonoBehaviour {
 	// Update is called once per frame
     void click()
     {
-        if (HierarchyHandler.cookingFacts.activeInHierarchy == true)
+        /*if (HierarchyHandler.cookingFacts.activeInHierarchy == true)
         {
             HierarchyHandler.cookingFacts.SetActive(false);
         }
 
         Debug.Log("im running overlay");
-        HierarchyHandler.closeoverlay.SetActive(false);
+        HierarchyHandler.closeoverlay.SetActive(false);*/
     }
 }
