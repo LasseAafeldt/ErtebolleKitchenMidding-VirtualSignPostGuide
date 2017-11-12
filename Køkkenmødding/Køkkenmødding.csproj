@@ -249,7 +249,6 @@
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
-    <Compile Include="Assets\Scripts\UI\Bål\BålOpen.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl2.cs" />
@@ -257,12 +256,12 @@
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\ray.cs" />
-    <Compile Include="Assets\Scripts\UI\Keramik&amp;Kam\KeramikOpen.cs" />
-    <Compile Include="Assets\Scripts\UI\OpenCooking.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\ShowModel.cs" />
     <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
   </ItemGroup>

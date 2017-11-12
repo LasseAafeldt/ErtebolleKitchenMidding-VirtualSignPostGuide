@@ -12,11 +12,19 @@ public class OpenModelInfo : MonoBehaviour {
     public Button backBut;
     public static string model;
 
+    Vector3 position;
+    Object prefab;
+    Quaternion rotation;
+
     void Start()
     {
         checkLanguage();
         canvas = gameObject.transform.parent.GetChild(0).GetComponent<CanvasGroup>();
         hideInfoUI();
+
+        position = GameObject.Find("ModelPosition").transform.position;
+        rotation = GameObject.Find("ModelPosition").transform.rotation;
+
         backBut.onClick.AddListener(delegate { hideInfoUI(); });
     }
 
@@ -29,7 +37,56 @@ public class OpenModelInfo : MonoBehaviour {
             model = gameObject.name;
             setText();
             Debug.Log(model);
+            selectPrefab();
+            GameObject clone = Instantiate( (GameObject)prefab, position, rotation);
+            
         }
+    }
+
+    Object selectPrefab()
+    {
+
+        if (model == "Bål")
+        {
+            prefab = Resources.Load("ModBål");
+        }
+        if(model == "Keramik")
+        {
+            prefab = Resources.Load("ModKeramik");
+        }
+        if(model == "Kam")
+        {
+            prefab = Resources.Load("ModKam");
+        }
+        if(model == "Østers")
+        {
+            prefab = Resources.Load("ModØsters");
+        }
+        if(model == "Fisk")
+        {
+            prefab = Resources.Load("ModFisk");
+        }
+        if(model == "Hund")
+        {
+            prefab = Resources.Load("ModHund");
+        }
+        if(model == "Skelet")
+        {
+            prefab = Resources.Load("ModSkelet");
+        }
+        if(model == "Hasselnød")
+        {
+            prefab = Resources.Load("ModHasselnød");
+        }
+        if(model == "Dyr")
+        {
+            prefab = Resources.Load("ModDyr");
+        }
+        if(model == "Tværpil")
+        {
+            prefab = Resources.Load("ModTværpil");
+        }
+        return prefab;
     }
 
     void showInfoUI()
