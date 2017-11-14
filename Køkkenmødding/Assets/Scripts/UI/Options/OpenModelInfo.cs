@@ -15,11 +15,14 @@ public class OpenModelInfo : MonoBehaviour {
     Vector3 position;
     Object prefab;
     Quaternion rotation;
+    Transform modelPosition;
 
     void Start()
     {
+        modelPosition = GameObject.Find("ModelPosition").transform;
         checkLanguage();
-        canvas = gameObject.transform.parent.GetChild(0).GetComponent<CanvasGroup>();
+        canvas = GameObject.Find("WorldSpace").transform.GetChild(0).GetComponent<CanvasGroup>();
+        model = "0";
         hideInfoUI();
 
         position = GameObject.Find("ModelPosition").transform.position;
@@ -98,9 +101,17 @@ public class OpenModelInfo : MonoBehaviour {
 
     void hideInfoUI()
     {
-        canvas.alpha = 0;
-        canvas.interactable = false;
-        canvas.blocksRaycasts = false;
+        if(model == gameObject.name || model == "0")
+        {
+            for (int i = 0; i < modelPosition.childCount; i++)
+            {
+                Destroy(modelPosition.GetChild(0).gameObject);
+                Debug.Log("I Destroyed a Child");
+            }
+            canvas.alpha = 0;
+            canvas.interactable = false;
+            canvas.blocksRaycasts = false;
+        }
     }
 
     void checkLanguage()
