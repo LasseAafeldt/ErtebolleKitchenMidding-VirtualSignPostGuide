@@ -12,8 +12,8 @@ public class SpawnAnimals : MonoBehaviour {
     public static int currentAnimals;
     public GameObject prefab;
     public static int kills;
-    private Vector3 pos;
-    private List<Vector3> spawnPoints;
+    private Transform pos;
+    private List<Transform> spawnPoints;
     private int childCount;
 
 	// Use this for initialization
@@ -21,7 +21,7 @@ public class SpawnAnimals : MonoBehaviour {
         kills = 0;
         currentAnimals = 0;
         childCount = (int) GameObject.Find("SpawnPoints").transform.childCount;
-        spawnPoints = new List<Vector3>();
+        spawnPoints = new List<Transform>();
         add2List();
 	}
 	
@@ -34,12 +34,13 @@ public class SpawnAnimals : MonoBehaviour {
 	}
     public void spawnAnimal()
     {
-        GameObject deerClone = Instantiate(prefab, chooseSpawn(), gameObject.transform.rotation); //do something about the toration
+        GameObject deerClone = Instantiate(prefab, chooseSpawn().position, chooseSpawn().transform.rotation); //do something about the toration
         ++currentAnimals;
         Debug.Log("animals: " + currentAnimals);
 
+
     }
-    private Vector3 chooseSpawn()
+    private Transform chooseSpawn()
     {
         pos = spawnPoints[Random.Range((int)1, childCount)];
         Debug.Log(Random.Range((int)1, childCount));
@@ -49,7 +50,7 @@ public class SpawnAnimals : MonoBehaviour {
     {
         for(int i = 0; i <= GameObject.Find("SpawnPoints").transform.childCount - 1; i++)
         {
-            spawnPoints.Add(GameObject.Find("SpawnPoints").transform.GetChild(i).position);
+            spawnPoints.Add(GameObject.Find("SpawnPoints").transform.GetChild(i));
         }
     }
 }

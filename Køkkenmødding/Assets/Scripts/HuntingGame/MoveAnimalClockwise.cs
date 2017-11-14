@@ -24,5 +24,7 @@ public class MoveAnimalClockwise : MonoBehaviour {
     void move()
     {
         transform.RotateAround(Camera.main.transform.position, Vector3.up, speed * Time.deltaTime);
+        dir = Mathf.Atan2(transform.position.x, transform.position.z) + 90; //angle in randians
+        transform.rotation = Quaternion.AngleAxis(dir * Mathf.Rad2Deg, Vector3.up);
     }
 }

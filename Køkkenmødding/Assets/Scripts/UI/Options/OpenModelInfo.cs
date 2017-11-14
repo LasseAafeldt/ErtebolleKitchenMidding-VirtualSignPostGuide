@@ -38,8 +38,7 @@ public class OpenModelInfo : MonoBehaviour {
             setText();
             Debug.Log(model);
             selectPrefab();
-            GameObject clone = Instantiate( (GameObject)prefab, position, rotation);
-            
+            GameObject clone = Instantiate( (GameObject)prefab, position, rotation,GameObject.Find("ModelPosition").transform);  
         }
     }
 
