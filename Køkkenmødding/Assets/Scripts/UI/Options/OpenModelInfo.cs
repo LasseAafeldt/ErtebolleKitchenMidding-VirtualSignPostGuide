@@ -108,6 +108,8 @@ public class OpenModelInfo : MonoBehaviour {
                 Destroy(modelPosition.GetChild(0).gameObject);
                 Debug.Log("I Destroyed a Child");
             }
+            AudioHandler.voice = false;
+            Camera.main.GetComponent<AudioSource>().Stop();
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;

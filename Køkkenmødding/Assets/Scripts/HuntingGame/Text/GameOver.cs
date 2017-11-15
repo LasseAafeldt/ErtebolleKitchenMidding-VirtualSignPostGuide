@@ -15,28 +15,39 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HitDectection.hasHit == true)
+        if (SpawnAnimals.kills == Goal.deerGoal)
         {
             if(ChooseLanguage.language == 0)//Danish
             {
-                tex.text = "Yaaay! Du skød " + SpawnAnimals.kills + " dyr!"
+                tex.text = "Yaay! Du skød " + SpawnAnimals.kills + " dyr!"
                     ;
             }
             if(ChooseLanguage.language == 1)//english
             {
-                tex.text = "Yaaay! You shot " + SpawnAnimals.kills + " Animals \n"
+                tex.text = "Yaay! You shot " + SpawnAnimals.kills + " Animals \n"
                     ;
+            }
+        }
+        else if(HitDectection.hasHit == true)
+        {
+            if(ChooseLanguage.language == 0)//Danish
+            {
+                tex.text = "Du løb tør for tid, men, du skød " + SpawnAnimals.kills + " dyr!";
+            }
+            if(ChooseLanguage.language == 1)//English
+            {
+                tex.text = ("Sadly you ran out of time but you managed to shoot" + SpawnAnimals.kills + "animals!");
             }
         }
         else
         {
-            if(ChooseLanguage.language == 0)//Danish
+            if (ChooseLanguage.language == 0)//Danish
             {
-                tex.text = "Det var ærgeligt. Du fik ikke ramt nogen dyr.";
+                tex.text = "Du skød ikke noget på denne jagt.";
             }
-            if(ChooseLanguage.language == 1)//English
+            if (ChooseLanguage.language == 1)//English
             {
-                tex.text = ("Too bad. You ran out of time");
+                tex.text = ("You didn't manage to secure any food on this hunt.");
             }
         }
     }

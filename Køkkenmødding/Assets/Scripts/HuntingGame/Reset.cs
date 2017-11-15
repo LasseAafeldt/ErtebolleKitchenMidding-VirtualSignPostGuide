@@ -31,6 +31,7 @@ public class Reset : MonoBehaviour {
 
             HitDectection.animalDoStuff = false; //name makes it seem like it's inverted but it's not
             SpawnAnimals.kills = 0;
+            ShootArrow.arrowsShot = 0;
             HitDectection.hasHit = false;
             HuntingHandler.end.SetActive(false);
         }

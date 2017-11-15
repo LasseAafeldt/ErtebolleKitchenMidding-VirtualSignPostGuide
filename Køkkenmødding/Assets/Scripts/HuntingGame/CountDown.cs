@@ -24,7 +24,7 @@ public class CountDown : MonoBehaviour {
             time -= Time.deltaTime;
             timer.text = ("Time left = " + (int)time);
         }
-        if (time <= 0 && HuntingHandler.end.activeInHierarchy == false)
+        if (time <= 0 || SpawnAnimals.kills == Goal.deerGoal && HuntingHandler.end.activeInHierarchy == false)
         {
             StartCoroutine(end());
         }

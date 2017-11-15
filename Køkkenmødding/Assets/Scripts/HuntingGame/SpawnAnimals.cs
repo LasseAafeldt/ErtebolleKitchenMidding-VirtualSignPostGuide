@@ -43,7 +43,7 @@ public class SpawnAnimals : MonoBehaviour {
     private Transform chooseSpawn()
     {
         pos = spawnPoints[Random.Range((int)1, childCount)];
-        Debug.Log(Random.Range((int)1, childCount));
+        //Debug.Log("spawn point " + pos);
         return pos;
     }
     private void add2List()
