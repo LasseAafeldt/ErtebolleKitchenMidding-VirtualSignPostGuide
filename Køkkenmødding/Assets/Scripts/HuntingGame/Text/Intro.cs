@@ -15,7 +15,7 @@ public class Intro : MonoBehaviour
         {
             tex.text = "Velkommen til Jæger spillet! \n"+
                 "\n"+
-                "Når du starter spillet har du 60 sekunder til at skyde\n"+ 
+                "Når du starter spillet har du 60 sekunder til at skyde "+ 
                 "så mange dyr som muligt.\n"+
                 "\n"+
                 "For at skyde skal du trykke på skærmen.\n"+
@@ -26,7 +26,15 @@ public class Intro : MonoBehaviour
         }
         if (ChooseLanguage.language == 1)//English
         {
-            tex.text = "Not yet implemented";
+            tex.text = "Welcome Hunter \n"+
+                "\n" +
+                "When the game starts you will have 60 seconds to shoot as many animals as possible \n" +
+                "\n" +
+                "Tap the screen to shoot \n" +
+                "Tap the screen again to get a new arrow \n" +
+                "\n" +
+                "Good Hunting!"
+                ;
         }
     }
 

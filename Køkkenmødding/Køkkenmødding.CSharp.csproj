@@ -234,6 +234,8 @@
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
+    <Compile Include="Assets\Scripts\ModelRotation.cs" />
+    <Compile Include="Assets\Scripts\ModelRotationDrag.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl2.cs" />
