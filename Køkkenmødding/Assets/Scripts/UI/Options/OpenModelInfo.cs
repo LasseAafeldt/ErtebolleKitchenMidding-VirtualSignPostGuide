@@ -38,6 +38,7 @@ public class OpenModelInfo : MonoBehaviour {
         {
             checkLanguage();
             showInfoUI();
+            MogensText.setText();
             model = gameObject.transform.parent.name;
             setText();
             Debug.Log(model);

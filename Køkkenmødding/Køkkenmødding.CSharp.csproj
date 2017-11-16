@@ -251,6 +251,7 @@
     <Compile Include="Assets\Scripts\UI\Options\AudioHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\MogensText.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />

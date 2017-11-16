@@ -146,3 +146,4 @@ fc89a31f248eb512f54949f4f5088a5a Assembly-CSharp.dll:.Intro
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.MoveAnimalClockwise
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ToggleIcons
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Goal
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MogensText
