@@ -138,6 +138,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 fc89a31f248eb512f54949f4f5088a5a Assembly-CSharp.dll:.Intro
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraTouch
 8b9f05e49e19b6f3202c3e211aaeb09b Assembly-CSharp.dll:.CloseOverlay
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MogensText
 381178bc38348efcf320ddb331bcf98f Assembly-CSharp.dll:.MoveAnimal
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraControl2
 8b9f05e49e19b6f3202c3e211aaeb09b Assembly-CSharp.dll:.CloseOptions
@@ -146,4 +147,3 @@ fc89a31f248eb512f54949f4f5088a5a Assembly-CSharp.dll:.Intro
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.MoveAnimalClockwise
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ToggleIcons
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Goal
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MogensText
