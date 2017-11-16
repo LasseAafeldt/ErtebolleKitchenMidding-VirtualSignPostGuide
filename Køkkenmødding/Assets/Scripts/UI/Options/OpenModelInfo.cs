@@ -19,6 +19,7 @@ public class OpenModelInfo : MonoBehaviour {
 
     void Start()
     {
+        Debug.Log("running start!!!");
         modelPosition = GameObject.Find("ModelPosition").transform;
         checkLanguage();
         canvas = GameObject.Find("WorldSpace").transform.GetChild(0).GetComponent<CanvasGroup>();
@@ -33,11 +34,11 @@ public class OpenModelInfo : MonoBehaviour {
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0)
         {
             checkLanguage();
             showInfoUI();
-            model = gameObject.name;
+            model = gameObject.transform.parent.name;
             setText();
             Debug.Log(model);
             selectPrefab();
@@ -45,7 +46,7 @@ public class OpenModelInfo : MonoBehaviour {
         }
     }
 
-    Object selectPrefab()
+    void selectPrefab()
     {
 
         if (model == "Bål")
@@ -54,6 +55,7 @@ public class OpenModelInfo : MonoBehaviour {
         }
         if(model == "Keramik")
         {
+            Debug.Log("test");
             prefab = Resources.Load("ModKeramik");
         }
         if(model == "Kam")
@@ -66,6 +68,7 @@ public class OpenModelInfo : MonoBehaviour {
         }
         if(model == "Fisk")
         {
+            Debug.Log("Entered!!!");
             prefab = Resources.Load("ModFisk");
         }
         if(model == "Hund")
@@ -88,7 +91,14 @@ public class OpenModelInfo : MonoBehaviour {
         {
             prefab = Resources.Load("ModTværpil");
         }
-        return prefab;
+        if(model == "Mødding")
+        {
+            prefab = Resources.Load("ModMødding");
+        }
+        if(model == "Havet")
+        {
+            prefab = Resources.Load("ModHav");
+        }
     }
 
     void showInfoUI()
@@ -101,8 +111,9 @@ public class OpenModelInfo : MonoBehaviour {
 
     void hideInfoUI()
     {
-        if(model == gameObject.name || model == "0")
+        if(model == gameObject.transform.parent.name || model == "0")
         {
+            Debug.Log("running hideUIInfo()");
             for (int i = 0; i < modelPosition.childCount; i++)
             {
                 Destroy(modelPosition.GetChild(0).gameObject);
@@ -166,22 +177,21 @@ public class OpenModelInfo : MonoBehaviour {
             if (danish)
             {
                 headline.text = "Keramik";
-                tex.text = "I Danmark var Ertebøllefolket de første til at bruge keramik."+ 
-                    "(BILLEDE AF KERAMIK)";
+                tex.text = "I Danmark var Ertebøllefolket de første til at bruge keramik." 
+                   ;
             }
             else
             {
                 headline.text = "Ceramics";
                 tex.text = "In Denmark, the Ertebølle people were the first to use ceramics.";
             }
-            //insert the image here
         }
         if(model == "Kam")
         {
             if (danish)
             {
                 headline.text = "Kam";
-                tex.text = "I møddingen er der fundet to kamme, så man har måske haft flotte opsatte frisurer. (BILLEDE AF KAM)";
+                tex.text = "I møddingen er der fundet to kamme, så man har måske haft flotte opsatte frisurer.";
             }
             else
             {
@@ -189,7 +199,7 @@ public class OpenModelInfo : MonoBehaviour {
                 tex.text = "In the midden, two combs have been found,"+ 
                     "which indicates that the people living there might have had some very nice hairdos.";
             }
-            //insert the image here
+
         }
         if(model == "Østers")
         {
@@ -197,7 +207,7 @@ public class OpenModelInfo : MonoBehaviour {
             {
                 headline.text = "Muslinger";
                 tex.text = "Køkkenmøddingen består af store mængder af østersskaller fra de østers Ertebøllefolket har spist.\n" +
-                "Der er dog ikke nok næring i østers til at man ville kunne nøjes med at spise dem. (BILLEDE AF ØSTERSLAG)";
+                "Der er dog ikke nok næring i østers til at man ville kunne nøjes med at spise dem.";
             }
             else
             {
@@ -205,7 +215,6 @@ public class OpenModelInfo : MonoBehaviour {
                 tex.text = "The midden consisted largely of oyster shells from the oysters the people of Ertebølle ate."+
                     "However, this wasn’t the only thing they ate, since oysters do not contain a lot of nourishment.";
             }
-            //inster the imge here
         }
         if(model == "Fisk")
         {
@@ -213,7 +222,7 @@ public class OpenModelInfo : MonoBehaviour {
             {
                 headline.text = "Fisk";
                 tex.text = "I møddingen har man fundet fiskekroge. Man har fundet rigtig mange fiskeben fra ål." +
-                "Ål var en populær fisk i Ertebølletiden, da det er en meget fedtholdig fisk. (BILLEDE AF KROG)";
+                " Ål var en populær fisk i Ertebølletiden, da det er en meget fedtholdig fisk.";
             }
             else
             {
@@ -221,7 +230,6 @@ public class OpenModelInfo : MonoBehaviour {
                 tex.text = "Fish hooks have been found in the midden, along with a lot of fishbones from eels." +
                 "Eels were very popular fish since they contain a lot of fat.";
             }
-            //inster the image here
         }
         if(model == "Hund")
         {
@@ -229,7 +237,7 @@ public class OpenModelInfo : MonoBehaviour {
             {
                 headline.text = "Hunde";
                 tex.text = "Hunde blev brugt til at gå på jagt og de var også de eneste tamme dyr man havde i Ertebølletiden. \n" +
-                "Der er fundet knogler og ekskrementer i køkkenmøddingen fra hunde. (BILLEDE AF HUND)";
+                "Der er fundet knogler og ekskrementer i køkkenmøddingen fra hunde.";
             }
             else
             {
@@ -237,7 +245,6 @@ public class OpenModelInfo : MonoBehaviour {
                 tex.text = "Dogs were used for hunting and were the only tame animals people had in the Ertebølle age.\n" +
                 "Bones and faeces from dogs have been found at the midden.";
             }
-            //instert the imgage here
         }
         if(model == "Skelet")
         {
