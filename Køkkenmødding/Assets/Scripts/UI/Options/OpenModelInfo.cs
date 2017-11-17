@@ -95,6 +95,7 @@ public class OpenModelInfo : MonoBehaviour {
         if(model == "Mødding")
         {
             prefab = Resources.Load("ModMødding");
+            GameObject.Find("Spotlight").GetComponent<Light>().intensity = 10;
         }
         if(model == "Havet")
         {
@@ -122,6 +123,7 @@ public class OpenModelInfo : MonoBehaviour {
             }
             AudioHandler.voice = false;
             Camera.main.GetComponent<AudioSource>().Stop();
+            GameObject.Find("Spotlight").GetComponent<Light>().intensity = 1;
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
