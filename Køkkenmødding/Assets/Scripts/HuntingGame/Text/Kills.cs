@@ -16,7 +16,7 @@ public class Kills : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Goal.deerGoal.ToString());
+        //Debug.Log(Goal.deerGoal.ToString());
         text.text = SpawnAnimals.kills.ToString() + " / " + Goal.deerGoal.ToString();
     }
 }

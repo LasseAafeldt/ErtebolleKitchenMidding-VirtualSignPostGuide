@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OpenModelInfo : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class OpenModelInfo : MonoBehaviour {
     public Text tex;
     public Button backBut;
     public static string model;
+    public Button gameBut;
 
     Vector3 position;
     Object prefab;
@@ -19,6 +21,10 @@ public class OpenModelInfo : MonoBehaviour {
 
     void Start()
     {
+        if(SceneManager.GetActiveScene().name == "HuntingGame")
+        {
+            gameBut.onClick.AddListener(delegate { click(); });
+        }
         Debug.Log("running start!!!");
         modelPosition = GameObject.Find("ModelPosition").transform;
         checkLanguage();
@@ -30,6 +36,18 @@ public class OpenModelInfo : MonoBehaviour {
         rotation = GameObject.Find("ModelPosition").transform.rotation;
 
         backBut.onClick.AddListener(delegate { hideInfoUI(); });
+    }
+
+    void click()
+    {
+        checkLanguage();
+        showInfoUI();
+        MogensText.setText();
+        model = gameObject.transform.parent.name;
+        setText();
+        Debug.Log(model);
+        selectPrefab();
+        GameObject clone = Instantiate((GameObject)prefab, position, rotation, GameObject.Find("ModelPosition").transform);
     }
 
     void OnMouseOver()
