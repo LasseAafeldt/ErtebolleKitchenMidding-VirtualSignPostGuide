@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AudioHandler : MonoBehaviour {
     public Button but;
     public static bool voice;
+	public int audioPlayed = 0;
     AudioClip[] audioArray;
 
     string model;
@@ -32,6 +33,7 @@ public class AudioHandler : MonoBehaviour {
             {
                 Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
                 Camera.main.GetComponent<AudioSource>().Play();
+				audioPlayed++;
                 yield return new WaitForSeconds(audioArray[i].length);
                 voice = false;
             }

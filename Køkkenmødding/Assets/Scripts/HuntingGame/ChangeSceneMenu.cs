@@ -13,6 +13,7 @@ public class ChangeSceneMenu : MonoBehaviour {
 
     void click()
     {
+		Debug.Log (Time.timeSinceLevelLoad);
         SceneManager.LoadScene("Midding"); //if main scene name change change here aswell.
     }
   
