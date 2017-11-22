@@ -41,6 +41,9 @@ public class IntroText : MonoBehaviour {
     {
         canvas.alpha = 0;
         canvas.interactable = false;
-        canvas.ignoreParentGroups = false;
+        canvas.blocksRaycasts = false;
+        GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder = 0;
+        GameObject.Find("OptionsButtonCanvas").GetComponent<Canvas>().sortingOrder = 0;
+        Debug.Log("sort order = "+ GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder);
     }
 }

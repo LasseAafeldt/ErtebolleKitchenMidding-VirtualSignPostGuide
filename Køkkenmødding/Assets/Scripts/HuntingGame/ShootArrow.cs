@@ -13,16 +13,18 @@ public class ShootArrow : MonoBehaviour {
 
     private Vector3 dir;
     int arrowAmount;
+    CanvasGroup end;
 
     void Start () {
         cam = Camera.main;
         arrowAmount = 60;
         //updateQuiver();
+        end = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
 	}
 	
 	
 	void FixedUpdate () {
-        if (Input.GetMouseButtonDown(0) && HuntingHandler.tutorial.activeInHierarchy == false && HuntingHandler.pil.activeInHierarchy == true && arrowsShot < arrowAmount)
+        if (Input.GetMouseButtonDown(0) && HuntingHandler.tutorial.activeInHierarchy == false && HuntingHandler.pil.activeInHierarchy == true && arrowsShot < arrowAmount && end.alpha == 0)
         {        
             GameObject arrowClone = Instantiate(prefab, transform.position, transform.GetChild(0).transform.rotation);
 

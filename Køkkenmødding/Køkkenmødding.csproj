@@ -231,7 +231,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraMethodController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
+    <Compile Include="Assets\Scripts\cameraTransform.cs" />
     <Compile Include="Assets\Scripts\ChangeLevel.cs" />
     <Compile Include="Assets\Scripts\ChangeSceneHunting.cs" />
     <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
@@ -247,7 +249,8 @@
     <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\StartHunt.cs" />
-    <Compile Include="Assets\Scripts\HuntingGame\Text\butDyr.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Text\DeerBut.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Text\DogBut.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\GameOver.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Goal.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
@@ -263,6 +266,7 @@
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\ray.cs" />
+    <Compile Include="Assets\Scripts\UI\IntroText.cs" />
     <Compile Include="Assets\Scripts\UI\Options\AudioHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />

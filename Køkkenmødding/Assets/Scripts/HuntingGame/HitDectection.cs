@@ -6,6 +6,12 @@ public class HitDectection : MonoBehaviour {
     public static bool collision = false;
     public static bool animalDoStuff = false;
     public static bool hasHit = false;
+    GameObject sound;
+    private void Start()
+    {
+        sound = GameObject.Find("DeerSound");
+    }
+
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Animal"))
@@ -28,6 +34,9 @@ public class HitDectection : MonoBehaviour {
     IEnumerator destroyAnimal(Collision col)
     {
         animalDoStuff = true;
+        sound.transform.position = col.transform.position;
+        sound.GetComponent<AudioSource>().Play();
+        //col.gameObject.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audio/SFX/Deer 2"));
         yield return new WaitForSeconds(1.5F);
         Debug.Log(col.gameObject);
         Destroy(col.gameObject);
