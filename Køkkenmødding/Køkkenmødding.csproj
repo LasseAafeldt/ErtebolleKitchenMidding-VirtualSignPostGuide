@@ -225,19 +225,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
-    <Compile Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
+    <ProjectReference Include="Køkkenmødding.Plugins.csproj">
+      <Project>{1FE346B9-ED59-C0CD-F6CB-6967445C5359}</Project>
+      <Name>Køkkenmødding.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\ChangeLevel.cs" />
     <Compile Include="Assets\Scripts\ChangeSceneHunting.cs" />
     <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
+    <Compile Include="Assets\Scripts\HighlightColor.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\ChangeSceneMenu.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\CountDown.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\HitDectection.cs" />
@@ -249,11 +247,13 @@
     <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\StartHunt.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Text\butDyr.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\GameOver.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Goal.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
+    <Compile Include="Assets\Scripts\Logging.cs" />
     <Compile Include="Assets\Scripts\ModelRotation.cs" />
     <Compile Include="Assets\Scripts\ModelRotationDrag.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
@@ -266,6 +266,7 @@
     <Compile Include="Assets\Scripts\UI\Options\AudioHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\MogensText.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
@@ -274,12 +275,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Party\SkeletonData\animations.txt" />
-    <None Include="Assets\3rd Party\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
-    <None Include="Assets\3rd Party\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
-    <None Include="Assets\3rd Party\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
-    <None Include="Assets\3rd Party\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
-    <None Include="Assets\3rd Party\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\3rd Party\Stylized Nature Environment\ReadMe.txt" />
+    <None Include="Assets\Resources\Outlined_Diffuse.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

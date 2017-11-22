@@ -223,6 +223,7 @@
   <ItemGroup>
     <None Include="Assets\3rd Party\SkeletonData\animations.txt" />
     <None Include="Assets\3rd Party\Stylized Nature Environment\ReadMe.txt" />
+    <None Include="Assets\Resources\Outlined_Diffuse.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />

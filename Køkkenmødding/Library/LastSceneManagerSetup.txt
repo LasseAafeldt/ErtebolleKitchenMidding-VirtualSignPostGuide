@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Others/Midding.unity
+- path: Assets/Scenes/Levels/HuntingGame.unity
   isLoaded: 1
   isActive: 1

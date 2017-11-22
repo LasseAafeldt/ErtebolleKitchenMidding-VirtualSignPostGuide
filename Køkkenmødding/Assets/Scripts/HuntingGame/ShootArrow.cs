@@ -16,7 +16,7 @@ public class ShootArrow : MonoBehaviour {
 
     void Start () {
         cam = Camera.main;
-        arrowAmount = 5;
+        arrowAmount = 60;
         //updateQuiver();
 	}
 	

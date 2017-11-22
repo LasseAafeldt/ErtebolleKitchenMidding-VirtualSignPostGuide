@@ -16,6 +16,7 @@ public class HuntingHandler : MonoBehaviour {
         tutorial.SetActive(true);
         pil.SetActive(true);
         end.SetActive(false);
+        GameObject.Find("Canvas").GetComponent<CanvasGroup>().alpha = 0;
 	}
 	
 	// Update is called once per frame
