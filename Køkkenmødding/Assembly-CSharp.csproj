@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraRotation.cs" />
+     <Compile Include="Assets\Scripts\cameraTransform.cs" />
      <Compile Include="Assets\Scripts\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\ChangeSceneHunting.cs" />
      <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
