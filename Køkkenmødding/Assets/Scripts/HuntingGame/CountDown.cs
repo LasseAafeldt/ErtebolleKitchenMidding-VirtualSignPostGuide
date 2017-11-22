@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour {
-
+    CanvasGroup canvas;
     public Text timer;
     public float time;
 
@@ -39,6 +39,10 @@ public class CountDown : MonoBehaviour {
     {
         yield return new WaitForSeconds(0);
         HuntingHandler.end.SetActive(true);
+        canvas = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
+        canvas.alpha = 1;
+        canvas.interactable = true;
+        canvas.blocksRaycasts = true;
         HitDectection.animalDoStuff = true;
     }
 }

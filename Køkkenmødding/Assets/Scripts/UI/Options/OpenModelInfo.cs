@@ -168,8 +168,8 @@ public class OpenModelInfo : MonoBehaviour {
         {
             if (danish)
             {
-                headline.text = "noget som virker";
-                tex.text = "Denne køkkenmødding gav navn til en hel periode af stenalderen: Ertebølletiden, som startede for 7400 år siden og varede 1500 år. Møddingen var menneskeskabt og bestod primært af køkkenaffald. Møddingen har strakt sig mindst 140 meter, har bredt sig over 20 meter fra kystlinjen ind mod land, og været helt op til 1,9 meter høj.";
+                headline.text = "Affaldsbunke";
+                tex.text = "Denne køkkenmødding gav navn til en hel periode af stenalderen: Ertebølletiden, som startede for 7400 år siden og varede 1500 år. Møddingen var menneskeskabt og bestod primært af køkkenaffald. Møddingen har strakt sig mindst 140 meter, og har bredt sig over 20 meter fra kystlinjen ind mod land, og været helt op til 1,9 meter høj.";
             }
             else
             {
@@ -272,7 +272,7 @@ public class OpenModelInfo : MonoBehaviour {
             if (danish)
             {
                 headline.text = "Skeletter";
-                tex.text = "Der er blevet fundet et helt skelet i møddingen og mange andre menneskeknogler,"+ 
+                tex.text = "Der er blevet fundet et helt skelet i møddingen og mange andre menneskeknogler, "+ 
                     "hvilket viser at mødding også blev brugt som gravplads.";
             }
             else
@@ -287,14 +287,14 @@ public class OpenModelInfo : MonoBehaviour {
             if (danish)
             {
                 headline.text = "Skovens frugt";//eventuelt "Skovens mad"
-                tex.text = "Ertebøllefolket har samlet spiselige planter i urskoven." +
+                tex.text = "Ertebøllefolket har samlet spiselige planter i urskoven. " +
                     "I møddingen har man fundet knækkede nøddeskaller hvilket viser," +
                     "at hasselnødder var en del af de planter man spiste.";
             }
             else
             {
                 headline.text = "Fruits";
-                tex.text = "The Ertebølle people gathered edible plants in the primeval forest."+ 
+                tex.text = "The Ertebølle people gathered edible plants in the primeval forest. "+ 
                     "Broken hazelnut shells have been found in the midden which shows that hazelnuts were among the plants they ate.";
             }
         }
@@ -312,18 +312,18 @@ public class OpenModelInfo : MonoBehaviour {
                     "The parts that could not be used from the animal was thrown in the midden.";
             }
         }
-        if(model == "tværpil")
+        if(model == "Tværpil")
         {
             if (danish)
             {
                 headline.text = "Pile";
-                tex.text = "Ertebølletidens tværpile var formet så de har en bred skærende æg."+ 
+                tex.text = "Ertebølletidens tværpile var formet så de har en bred skærende æg. "+ 
                     "Pilen forårsager stor skade på dyrene, som forbløder hurtigt inden de når at løbe væk.";
             }
             else
             {
                 headline.text = "Arrows";
-                tex.text = "The arrows from the Ertebølle period were shaped to have a wide edge."+ 
+                tex.text = "The arrows from the Ertebølle period were shaped to have a wide edge. "+ 
                     "The arrow caused great damage on the animal which would bleed to death before it could run away.";
             }
         }
@@ -332,13 +332,13 @@ public class OpenModelInfo : MonoBehaviour {
             if (danish)
             {
                 headline.text = "Kystlinjen";
-                tex.text = "I Ertebølletiden var kystlinjen meget højere oppe på land og her så derfor meget anderledes ud." +
+                tex.text = "I Ertebølletiden var kystlinjen meget højere oppe på land og her så derfor meget anderledes ud. " +
                     "Ude i vandet var der store østers- og muslingebanker.";
             }
             else
             {
                 headline.text = "Shoreline";
-                tex.text = "In the Ertebølle period the shoreline was further up on land than it is now."+ 
+                tex.text = "In the Ertebølle period the shoreline was further up on land than it is now. "+ 
                     "The sea contained large clusters of oysters and mussels.";
             }
         }

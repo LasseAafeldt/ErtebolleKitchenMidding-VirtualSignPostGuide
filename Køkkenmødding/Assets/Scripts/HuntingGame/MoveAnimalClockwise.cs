@@ -16,7 +16,7 @@ public class MoveAnimalClockwise : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if(HitDectection.animalDoStuff == false && HuntingHandler.tutorial.activeInHierarchy == false)
+        if(HitDectection.animalDoStuff == false && HuntingHandler.tutorial.activeInHierarchy == false && HuntingHandler.end.activeInHierarchy == false)
         {
             move();
         }

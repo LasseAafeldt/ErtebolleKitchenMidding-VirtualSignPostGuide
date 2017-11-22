@@ -28,9 +28,4 @@ public class HuntingInfo : MonoBehaviour {
         }
             
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

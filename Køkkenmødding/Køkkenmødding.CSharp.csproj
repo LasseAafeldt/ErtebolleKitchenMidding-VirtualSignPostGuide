@@ -193,8 +193,23 @@
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>Library\UnityAssemblies\UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
@@ -220,6 +235,7 @@
     <Compile Include="Assets\Scripts\ChangeLevel.cs" />
     <Compile Include="Assets\Scripts\ChangeSceneHunting.cs" />
     <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
+    <Compile Include="Assets\Scripts\HighlightColor.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\ChangeSceneMenu.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\CountDown.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\HitDectection.cs" />
@@ -231,11 +247,14 @@
     <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\StartHunt.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Text\DeerBut.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Text\DogBut.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\GameOver.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Goal.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
+    <Compile Include="Assets\Scripts\Logging.cs" />
     <Compile Include="Assets\Scripts\ModelRotation.cs" />
     <Compile Include="Assets\Scripts\ModelRotationDrag.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />

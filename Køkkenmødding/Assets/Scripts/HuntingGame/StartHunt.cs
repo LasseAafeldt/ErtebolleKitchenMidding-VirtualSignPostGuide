@@ -15,5 +15,8 @@ public class StartHunt : MonoBehaviour {
     void click()
     {
         HuntingHandler.tutorial.SetActive(false);
+        HuntingHandler.end.SetActive(false);
+        HitDectection.animalDoStuff = false;
+        HuntingHandler.pil.SetActive(true);
     }
 }
