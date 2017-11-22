@@ -12,7 +12,7 @@ public class CountDown : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        timer.text = ("Time left = " + time);
+        timer.text = ("= " + time);
         tempTime = time;
     }
 
@@ -22,7 +22,7 @@ public class CountDown : MonoBehaviour {
         if (HuntingHandler.tutorial.activeInHierarchy == false && HuntingHandler.end.activeInHierarchy == false)
         {
             time -= Time.deltaTime;
-            timer.text = ("Time left = " + (int)time);
+            timer.text = ("= " + (int)time);
         }
         if (time <= 0 || SpawnAnimals.kills == Goal.deerGoal && HuntingHandler.end.activeInHierarchy == false)
         {
