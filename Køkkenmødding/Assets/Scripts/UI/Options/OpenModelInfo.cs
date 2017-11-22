@@ -142,6 +142,7 @@ public class OpenModelInfo : MonoBehaviour {
             AudioHandler.voice = false;
             Camera.main.GetComponent<AudioSource>().Stop();
             GameObject.Find("Spotlight").GetComponent<Light>().intensity = 1;
+            GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
