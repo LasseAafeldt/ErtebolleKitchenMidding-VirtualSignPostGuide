@@ -18,6 +18,7 @@ public class OpenModelInfo : MonoBehaviour {
     Object prefab;
     Quaternion rotation;
     Transform modelPosition;
+    CanvasGroup startUP;
 
     void Start()
     {
@@ -34,6 +35,11 @@ public class OpenModelInfo : MonoBehaviour {
 
         position = GameObject.Find("ModelPosition").transform.position;
         rotation = GameObject.Find("ModelPosition").transform.rotation;
+
+        if(SceneManager.GetActiveScene().name == "Midding")
+        {
+            startUP = GameObject.Find("StartUpScreen").GetComponent<CanvasGroup>();
+        }
 
         backBut.onClick.AddListener(delegate { hideInfoUI(); });
     }
@@ -52,7 +58,7 @@ public class OpenModelInfo : MonoBehaviour {
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0)
+        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0)
         {
             checkLanguage();
             showInfoUI();
@@ -131,7 +137,7 @@ public class OpenModelInfo : MonoBehaviour {
 
     void hideInfoUI()
     {
-        if(model == gameObject.transform.parent.name || model == "0")
+        if(model == gameObject.transform.parent.name || model == "0" || SceneManager.GetActiveScene().name == "HuntingGame")
         {
             Debug.Log("running hideUIInfo()");
             for (int i = 0; i < modelPosition.childCount; i++)
@@ -142,9 +148,11 @@ public class OpenModelInfo : MonoBehaviour {
             AudioHandler.voice = false;
             Camera.main.GetComponent<AudioSource>().Stop();
             GameObject.Find("Spotlight").GetComponent<Light>().intensity = 1;
+            GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
+            //Debug.Log("this was done");
         }
     }
 

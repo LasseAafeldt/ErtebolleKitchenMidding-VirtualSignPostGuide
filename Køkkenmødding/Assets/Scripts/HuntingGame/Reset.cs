@@ -7,6 +7,7 @@ public class Reset : MonoBehaviour {
     public Button but;
     public Text tex;
     CanvasGroup canvas;
+    CanvasGroup end;
 	// Use this for initialization
 	void Start () {
         canvas = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
@@ -18,12 +19,13 @@ public class Reset : MonoBehaviour {
         {
             tex.text = "Play again!";
         }
+        end = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
         but.onClick.AddListener(delegate { click(); });
     }
 	
     public void click()
     {
-		if(HuntingHandler.end.activeInHierarchy == true)
+        if (end.alpha == 1)
         {
             Debug.Log("Working as intended");
             HuntingHandler.tutorial.SetActive(true);

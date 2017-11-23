@@ -20,6 +20,7 @@ public class AudioHandler : MonoBehaviour {
     {
         model = OpenModelInfo.model;
         voice = true;
+        GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 0;
         Debug.Log("voice = " + voice);
         StartCoroutine(selectSound());
 
@@ -36,6 +37,7 @@ public class AudioHandler : MonoBehaviour {
 				audioPlayed++;
                 yield return new WaitForSeconds(audioArray[i].length);
                 voice = false;
+                GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
             }
         }
     }
