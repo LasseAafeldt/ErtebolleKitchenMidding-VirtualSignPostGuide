@@ -14,12 +14,16 @@ public class ShootArrow : MonoBehaviour {
     private Vector3 dir;
     int arrowAmount;
     CanvasGroup end;
+    CanvasGroup arrowBack;
+    bool promt;
 
     void Start () {
+        promt = true;
         cam = Camera.main;
         arrowAmount = 60;
         //updateQuiver();
         end = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
+        arrowBack = GameObject.Find("ArrowPrompt").GetComponent<CanvasGroup>();
 	}
 	
 	
@@ -37,6 +41,7 @@ public class ShootArrow : MonoBehaviour {
             Debug.Log("Arrows fired = " + arrowsShot);
             Debug.Log("max arrows = " + arrowAmount);
             //updateQuiver();
+            arrowBack.alpha = 1;
         }
         if(HuntingHandler.pil.activeInHierarchy == false && HitDectection.animalDoStuff == false)
         {
@@ -52,12 +57,29 @@ public class ShootArrow : MonoBehaviour {
     {
         yield return new WaitForSeconds(x);
 
+        if (promt)
+        {
+            StartCoroutine(getArrowBackPromt());
+            
+        }
         if (Input.GetMouseButtonDown(0) && HitDectection.animalDoStuff == false)
         {
 
             Destroy(GameObject.Find("Arrow(Clone)"));
             HuntingHandler.pil.SetActive(true);
+            arrowBack.alpha = 0;
         }
+    }
+
+    IEnumerator getArrowBackPromt()
+    {
+        while(arrowBack.alpha > 0)
+        {
+            promt = false;
+            arrowBack.alpha -= Time.deltaTime / 2;
+            yield return null;
+        }
+        promt = false;
     }
 
     void updateQuiver()

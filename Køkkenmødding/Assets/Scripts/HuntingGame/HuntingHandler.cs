@@ -7,13 +7,14 @@ public class HuntingHandler : MonoBehaviour {
     public static GameObject tutorial;
     public static GameObject pil;
     CanvasGroup endUI;
+    //public static CanvasGroup arrow;
     //public static GameObject end;
 
 	void Start () {
         tutorial = GameObject.Find("TutorialOverlay");
         pil = GameObject.Find("pil");
         endUI = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
-
+        //arrow = GameObject.Find("ArrowPromt").GetComponent<CanvasGroup>();
         tutorial.SetActive(true);
         pil.SetActive(true);
         //end.SetActive(false);

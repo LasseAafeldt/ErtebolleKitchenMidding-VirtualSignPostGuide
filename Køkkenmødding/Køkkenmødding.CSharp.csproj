@@ -249,6 +249,7 @@
     <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\StartHunt.cs" />
+    <Compile Include="Assets\Scripts\HuntingGame\Text\ArrowBack.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\DeerBut.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\DogBut.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\GameOver.cs" />
