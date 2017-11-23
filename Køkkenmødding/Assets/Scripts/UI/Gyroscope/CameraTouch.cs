@@ -31,9 +31,9 @@ public class CameraTouch : MonoBehaviour {
 		if (Input.GetTouch (0).phase == TouchPhase.Moved) {
 				secondPoint = Input.GetTouch (0).position;
 				xAngle = xAngleTemp + (secondPoint.x - firstPoint.x) * 180.0f / Screen.width;
-				yAngle = yAngleTemp + (secondPoint.y - firstPoint.y) * 180.0f / Screen.height;
-				Vector3 vec = new Vector3 (yAngle, xAngle, 0.0f);
-				cam.transform.Rotate(vec);
+				yAngle = yAngleTemp + (secondPoint.y - firstPoint.y) * 90.0f / Screen.height;
+				Quaternion vec = (Quaternion.Euler (yAngle, -xAngle, 0.0f));
+				cam.transform.rotation = vec;
 			}
 		}
 	}
