@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4D9A5244-75E0-9E70-D308-85A7177B49EF}</ProjectGuid>
+    <ProjectGuid>{FD7F4D74-834C-5A33-3505-05A3E5143D95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-UnityScript</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -46,52 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraMethodController.cs" />
-     <Compile Include="Assets\Scripts\CameraRotation.cs" />
-     <Compile Include="Assets\Scripts\ChangeLevel.cs" />
-     <Compile Include="Assets\Scripts\ChangeSceneHunting.cs" />
-     <Compile Include="Assets\Scripts\HierarchyHandler.cs" />
-     <Compile Include="Assets\Scripts\HighlightColor.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\ChangeSceneMenu.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\CountDown.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\HitDectection.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\HuntingHandler.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\MoveAnimal.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\MoveAnimalClockwise.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Reset.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\RewardScreen.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\StartHunt.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\DeerBut.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\DogBut.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\GameOver.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\Goal.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
-     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
-     <Compile Include="Assets\Scripts\Logging\Logging.cs" />
-     <Compile Include="Assets\Scripts\Logging\readLogs.cs" />
-     <Compile Include="Assets\Scripts\ModelRotation.cs" />
-     <Compile Include="Assets\Scripts\ModelRotationDrag.cs" />
-     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
-     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl.cs" />
-     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl2.cs" />
-     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl3.cs" />
-     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraController.cs" />
-     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" />
-     <Compile Include="Assets\Scripts\UI\Gyroscope\ray.cs" />
-     <Compile Include="Assets\Scripts\UI\IntroText.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\AudioHandler.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\MogensText.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\OpenOptions.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
-     <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
-     <Compile Include="Assets\Scripts\cameraTransform.cs" />
+     <Compile Include="Assets\Scripts\Logging\sendMail.js" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Resources\Outlined_Diffuse.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
