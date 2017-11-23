@@ -155,6 +155,7 @@ public class OpenModelInfo : MonoBehaviour {
             GameObject.Find("Spotlight").GetComponent<Light>().intensity = 1;
             GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
             // GameObject.Find("Scroll View").GetComponent<ScrollRect>().horizontalNormalizedPosition = 1;
+            GameObject.Find("Scroll View").GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 1);
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
