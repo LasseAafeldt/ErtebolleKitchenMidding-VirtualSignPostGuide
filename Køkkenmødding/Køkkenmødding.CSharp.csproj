@@ -256,7 +256,8 @@
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
-    <Compile Include="Assets\Scripts\Logging.cs" />
+    <Compile Include="Assets\Scripts\Logging\Logging.cs" />
+    <Compile Include="Assets\Scripts\Logging\readLogs.cs" />
     <Compile Include="Assets\Scripts\ModelRotation.cs" />
     <Compile Include="Assets\Scripts\ModelRotationDrag.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
