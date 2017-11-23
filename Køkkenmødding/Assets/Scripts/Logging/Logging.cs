@@ -39,12 +39,19 @@ public class Logging : MonoBehaviour {
 
 	public void newLog()
 	{
-		fileName = System.DateTime.Now.ToString () + " midden.txt";
+		if (! File.Exists(directory + "middendata2.txt")){
+			fileName = "middendata2.txt";
 		fileName = fileName.Replace ('/', '-');
 		fileName = fileName.Replace (':', '-');
 
-		using (StreamWriter writer = File.AppendText (directory + fileName)) {
+	/*	using (StreamWriter writer = File.AppendText (directory + fileName)) {
 			writer.WriteLine (headers); //The first line that shows what each coloumn is
+		}
+	*/	using (StreamWriter writer = new StreamWriter (directory + fileName)) {
+			writer.WriteLine (headers); //The first line that shows what each coloumn is
+				writer.Close ();
+
+		}
 		}
 	}
 		
@@ -53,26 +60,29 @@ public class Logging : MonoBehaviour {
 	void Update () {
 		newEntry ();
 	}
+
 	public void newEntry () {
 		/*	appOn = Time.time;
 		numofAud = audioHandler.GetComponent<AudioHandler> ().audioPlayed;
 		gameTime = PlayerPrefs.GetFloat ("game Time", 0); */
 
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-		//if (Input.GetMouseButtonDown(0))
+		//if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+		if (Input.GetMouseButtonDown(0))
 		{
 			appOn = Time.time;
 			numofAud = AudioHandler.audioPlayed;
 			gameTime = PlayerPrefs.GetFloat ("game Time", 0.0f);
-			posi = Input.GetTouch(0).position;
-			//posi = Input.mousePosition;
+			//posi = Input.GetTouch(0).position;
+			posi = Input.mousePosition;
 			camRot = cam.transform.rotation;
-			currentEntry = "touch begin " + appOn + sep + numofAud + sep + gameTime + sep 
+			currentEntry = "touch begin " + System.DateTime.Now.ToString() + sep + appOn + sep + numofAud + sep + gameTime + sep 
 				+ posi.x + sep + posi.y + sep 
 				+ camRot.x + sep + camRot.y + sep + camRot.z + sep + camRot.w + sep + OpenModelInfo.model;
 			using (StreamWriter writer = File.AppendText (directory + fileName)) {
 				writer.WriteLine (currentEntry);
+				writer.Close ();
 			}
+
 		}
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
 		{
@@ -86,6 +96,7 @@ public class Logging : MonoBehaviour {
 				+ camRot.x + sep + camRot.y + sep + camRot.z + sep + camRot.w + sep + OpenModelInfo.model;
 			using (StreamWriter writer = File.AppendText (directory + fileName)) {
 				writer.WriteLine (currentEntry);
+				writer.Close ();
 			}
 		}
 
