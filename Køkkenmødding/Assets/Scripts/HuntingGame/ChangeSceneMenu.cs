@@ -15,7 +15,7 @@ public class ChangeSceneMenu : MonoBehaviour {
     void click()
     {
 		Debug.Log (Time.timeSinceLevelLoad);
-		timePlay = Time.timeSinceLevelLoad;
+		timePlay = timePlay + Time.timeSinceLevelLoad;
 		PlayerPrefs.SetFloat ("game Time", timePlay);
         SceneManager.LoadScene("Midding"); //if main scene name change change here aswell.
     }

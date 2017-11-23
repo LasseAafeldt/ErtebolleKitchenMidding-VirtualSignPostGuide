@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AudioHandler : MonoBehaviour {
     public Button but;
     public static bool voice;
-	public int audioPlayed = 0;
+	public static int audioPlayed = 0;
     AudioClip[] audioArray;
 
     string model;
