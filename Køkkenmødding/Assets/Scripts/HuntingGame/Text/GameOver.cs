@@ -32,7 +32,7 @@ public class GameOver : MonoBehaviour
         {
             if(ChooseLanguage.language == 0)//Danish
             {
-                tex.text = "Du løb tør for tid, men, du skød " + SpawnAnimals.kills + " dyr!";
+                tex.text = "Du løb tør for tid men, du skød " + SpawnAnimals.kills + " dyr!";
             }
             if(ChooseLanguage.language == 1)//English
             {

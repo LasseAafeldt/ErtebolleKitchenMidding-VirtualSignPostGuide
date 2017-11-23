@@ -8,12 +8,14 @@ public class ToggleIcons : MonoBehaviour {
     GameObject mute;
 	// Use this for initialization
 	void Start () {
-        mute = GameObject.Find("MuteIcon");
-        speaker = GameObject.Find("SpeakerIcon");
+        //HierarchyHandler.optionsCanvas.SetActive(true);
+        mute = HierarchyHandler.mute;
+        speaker = HierarchyHandler.speaker;
+        Debug.Log("start status = " + mute);
     }
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
         SoundToggle.volume = gameObject.GetComponent<Slider>().value;
         Debug.Log("volume = " + SoundToggle.volume);
 		if(SoundToggle.volume == 0)//mute
@@ -24,8 +26,11 @@ public class ToggleIcons : MonoBehaviour {
 
         if(SoundToggle.volume != 0)//sound
         {
-            mute.SetActive(false);
+            if(mute.activeInHierarchy == true)
+            {
+                mute.SetActive(false);
+            }
             speaker.SetActive(true);
         }
-	}
+	}*/
 }

@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class Reset : MonoBehaviour {
     public Button but;
     public Text tex;
+    CanvasGroup canvas;
+    CanvasGroup end;
 	// Use this for initialization
 	void Start () {
-        but.onClick.AddListener(delegate { click(); });
+        canvas = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
         if(ChooseLanguage.language == 0)//Danish
         {
             tex.text = "Spil igen!";
@@ -17,11 +19,13 @@ public class Reset : MonoBehaviour {
         {
             tex.text = "Play again!";
         }
+        end = GameObject.Find("EndOfGame").GetComponent<CanvasGroup>();
+        but.onClick.AddListener(delegate { click(); });
     }
 	
     public void click()
     {
-		if(HuntingHandler.end.activeInHierarchy == true)
+        if (end.alpha == 1)
         {
             Debug.Log("Working as intended");
             HuntingHandler.tutorial.SetActive(true);
@@ -33,7 +37,11 @@ public class Reset : MonoBehaviour {
             SpawnAnimals.kills = 0;
             ShootArrow.arrowsShot = 0;
             HitDectection.hasHit = false;
-            HuntingHandler.end.SetActive(false);
+            //HuntingHandler.end.SetActive(false);
+            canvas.alpha = 0;
+            canvas.interactable = false;
+            canvas.blocksRaycasts = false;
+            Debug.Log("End was disabled");
         }
     }
 }

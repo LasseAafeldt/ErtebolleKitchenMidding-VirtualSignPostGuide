@@ -1,9 +1,8 @@
-﻿Shader "Outlined/Custom Constant Width" {
+﻿Shader "Outlined/Custom" {
 	Properties{
 		_Color("Main Color", Color) = (.5,.5,.5,1)
 		_OutlineColor("Outline Color", Color) = (0,0,0,1)
-		_Outline("Outline width", Range(0, 5)) = .1
-		_Limiter("Outline width limiter", Range(0, 5)) = 0
+		_Outline("Outline width", Range(0, 1)) = .1
 		_MainTex("Base (RGB)", 2D) = "white" { }
 	}
 
@@ -21,31 +20,18 @@
 	};
 
 	uniform float _Outline;
-	uniform float _Limiter;
 	uniform float4 _OutlineColor;
 
 	v2f vert(appdata v) {
-
+		// just make a copy of incoming vertex data but scaled according to normal direction
 		v2f o;
 
-		//Original concept of using FOV
-		//float t = unity_CameraProjection._m11;
-		//const float Rad2Deg = 180 / UNITY_PI;
-		//float fov = atan(1.0f / t ) * 2.0 * Rad2Deg;
-
-		//if(fov < _Limiter){
-		//	fov = _Limiter;
-		//}
-
-		float multiplier = unity_OrthoParams.x * 0.1;
-
-		if (multiplier < _Limiter) {
-			multiplier = _Limiter;
-		}
-
-		v.vertex *= _Outline * multiplier;
+		v.vertex *= (1 + _Outline);
 
 		o.pos = UnityObjectToClipPos(v.vertex);
+
+		//float3 norm   = normalize(mul ((float3x3)UNITY_MATRIX_IT_MV, v.normal));
+		//float2 offset = TransformViewToProjection(norm.xy);
 
 		o.color = _OutlineColor;
 		return o;
