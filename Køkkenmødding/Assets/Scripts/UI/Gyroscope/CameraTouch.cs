@@ -14,9 +14,9 @@ public class CameraTouch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cam = GetComponent<Camera>();
-		xAngle = 0.0f;
-		yAngle = 0.0f;
+		cam = Camera.main;
+		xAngle = cam.transform.localRotation.x;
+		yAngle = cam.transform.localRotation.y;
 	}
 	
 	// Update is called once per frame
