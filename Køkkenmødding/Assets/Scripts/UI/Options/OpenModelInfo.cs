@@ -19,6 +19,7 @@ public class OpenModelInfo : MonoBehaviour {
     Quaternion rotation;
     Transform modelPosition;
     CanvasGroup startUP;
+    CanvasGroup options;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class OpenModelInfo : MonoBehaviour {
         if(SceneManager.GetActiveScene().name == "Midding")
         {
             startUP = GameObject.Find("StartUpScreen").GetComponent<CanvasGroup>();
+            options = GameObject.Find("OptionsCanvas").GetComponent<CanvasGroup>();
         }
 
         backBut.onClick.AddListener(delegate { hideInfoUI(); });
@@ -46,19 +48,22 @@ public class OpenModelInfo : MonoBehaviour {
 
     void click()
     {
-        checkLanguage();
-        showInfoUI();
-        MogensText.setText();
-        model = gameObject.transform.parent.name;
-        setText();
-        Debug.Log(model);
-        selectPrefab();
-        GameObject clone = Instantiate((GameObject)prefab, position, rotation, GameObject.Find("ModelPosition").transform);
+        if(canvas.alpha == 0)
+        {
+            checkLanguage();
+            showInfoUI();
+            MogensText.setText();
+            model = gameObject.transform.parent.name;
+            setText();
+            Debug.Log(model);
+            selectPrefab();
+            GameObject clone = Instantiate((GameObject)prefab, position, rotation, GameObject.Find("ModelPosition").transform);
+        }
     }
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0)
+        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0 && options.alpha == 0)
         {
             checkLanguage();
             showInfoUI();
@@ -149,6 +154,7 @@ public class OpenModelInfo : MonoBehaviour {
             Camera.main.GetComponent<AudioSource>().Stop();
             GameObject.Find("Spotlight").GetComponent<Light>().intensity = 1;
             GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
+            // GameObject.Find("Scroll View").GetComponent<ScrollRect>().horizontalNormalizedPosition = 1;
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
