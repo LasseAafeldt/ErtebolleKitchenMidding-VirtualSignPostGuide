@@ -8,14 +8,30 @@ public class IntroText : MonoBehaviour {
     public Text introHeadline;
     public Button but;
     CanvasGroup canvas;
+    public static bool isFirst;
+    public static int first;
 	// Use this for initialization
 	void Start () {
+        isFirst = true;
         canvas = gameObject.GetComponent<CanvasGroup>();
+        Debug.Log("pFirst is" + PlayerPrefs.GetInt("pFirst"));
+        if(PlayerPrefs.GetInt("pFirst") == 1)
+        {
+            click();
+        }
         but.onClick.AddListener(delegate { click(); });
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (isFirst)
+        {
+            first = 0;
+        }
+        if (!isFirst)
+        {
+            first = 1;
+        }
 		if(ChooseLanguage.language == 0)
         {
             introHeadline.text = "Hej og velkommen til appen om Ertebølle køkkenmødding!";
@@ -45,5 +61,10 @@ public class IntroText : MonoBehaviour {
         GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder = 0;
         GameObject.Find("OptionsButtonCanvas").GetComponent<Canvas>().sortingOrder = 0;
         Debug.Log("sort order = "+ GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder);
+        isFirst = false;
+    }
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("pFirst", 0);
     }
 }
