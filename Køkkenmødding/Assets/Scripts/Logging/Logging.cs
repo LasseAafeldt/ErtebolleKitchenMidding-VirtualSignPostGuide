@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class Logging : MonoBehaviour {
 	/*
@@ -12,7 +13,7 @@ public class Logging : MonoBehaviour {
 	 * all touch related events and where they are touching
 	 */
 	// Use this for initialization
-	private string headers = "Touch;AppOnTime;AudioPlays;GameOnTime;TouchPositionX;TouchPositionY;CameraRotationX;CameraRotationY;CameraRotationZ;CameraRotationW";
+	private string headers = "Touch;Time;SceneName;AppOnTime;AudioPlays;GameOnTime;TouchPositionX;TouchPositionY;CameraRotationX;CameraRotationY;CameraRotationZ;CameraRotationW";
 	private StreamWriter writer;
 	private string directory;
 	private string currentEntry;
@@ -39,8 +40,7 @@ public class Logging : MonoBehaviour {
 
 	public void newLog()
 	{
-		if (! File.Exists(directory + "middendata2.txt")){
-			fileName = "middendata2.txt";
+		fileName = System.DateTime.Now.ToString() + "-midden.txt";
 		fileName = fileName.Replace ('/', '-');
 		fileName = fileName.Replace (':', '-');
 
@@ -50,8 +50,6 @@ public class Logging : MonoBehaviour {
 	*/	using (StreamWriter writer = new StreamWriter (directory + fileName)) {
 			writer.WriteLine (headers); //The first line that shows what each coloumn is
 				writer.Close ();
-
-		}
 		}
 	}
 		
@@ -66,19 +64,21 @@ public class Logging : MonoBehaviour {
 		numofAud = audioHandler.GetComponent<AudioHandler> ().audioPlayed;
 		gameTime = PlayerPrefs.GetFloat ("game Time", 0); */
 
-		//if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-		if (Input.GetMouseButtonDown(0))
+		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+		//if (Input.GetMouseButtonDown(0))
 		{
 			appOn = Time.time;
 			numofAud = AudioHandler.audioPlayed;
 			gameTime = PlayerPrefs.GetFloat ("game Time", 0.0f);
-			//posi = Input.GetTouch(0).position;
-			posi = Input.mousePosition;
+			posi = Input.GetTouch(0).position;
+			//posi = Input.mousePosition;
 			camRot = cam.transform.rotation;
-			currentEntry = "touch begin " + System.DateTime.Now.ToString() + sep + appOn + sep + numofAud + sep + gameTime + sep 
+			Scene scene = SceneManager.GetActiveScene ();
+			currentEntry = "touch begin " + System.DateTime.Now.ToString() + sep + scene.name + sep + appOn + sep + numofAud + sep + gameTime + sep 
 				+ posi.x + sep + posi.y + sep 
 				+ camRot.x + sep + camRot.y + sep + camRot.z + sep + camRot.w + sep + OpenModelInfo.model;
 			using (StreamWriter writer = File.AppendText (directory + fileName)) {
+			//using (StreamWriter writer = new StreamWriter (directory + fileName)){ //Overwrites what was previously written with the new line
 				writer.WriteLine (currentEntry);
 				writer.Close ();
 			}
@@ -91,7 +91,8 @@ public class Logging : MonoBehaviour {
 			gameTime = PlayerPrefs.GetFloat ("game Time", 0.0f);
 			posi = Input.GetTouch (0).position;
 			camRot = cam.transform.rotation;
-			currentEntry = "touch end " + appOn + sep + numofAud + sep + gameTime + sep 
+			Scene scene = SceneManager.GetActiveScene ();
+			currentEntry = "touch end " + System.DateTime.Now.ToString() + sep + scene.name + sep + appOn + sep + numofAud + sep + gameTime + sep 
 				+ posi.x + sep + posi.y + sep 
 				+ camRot.x + sep + camRot.y + sep + camRot.z + sep + camRot.w + sep + OpenModelInfo.model;
 			using (StreamWriter writer = File.AppendText (directory + fileName)) {
