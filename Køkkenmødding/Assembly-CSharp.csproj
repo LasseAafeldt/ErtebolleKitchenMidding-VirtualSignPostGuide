@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\HuntingGame\MoveAnimal.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\MoveAnimalClockwise.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\Reset.cs" />
+     <Compile Include="Assets\Scripts\HuntingGame\ResetStartScreen.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\RewardScreen.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\ShootArrow.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\SpawnAnimals.cs" />
@@ -89,6 +90,7 @@
      <Compile Include="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" />
      <Compile Include="Assets\Scripts\UI\Gyroscope\ray.cs" />
      <Compile Include="Assets\Scripts\UI\IntroText.cs" />
+     <Compile Include="Assets\Scripts\UI\MogenIntroText.cs" />
      <Compile Include="Assets\Scripts\UI\Options\AudioHandler.cs" />
      <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
      <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
