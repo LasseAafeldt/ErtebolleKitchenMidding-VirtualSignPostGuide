@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Gyroscope\CameraController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Logging\Logging.cs">
     <Files>
       <File FileName="Assets\Scripts\Logging\readLogs.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Logging\Logging.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Logging\Logging.cs" Line="91" Column="56" />
       <File FileName="Assets\Scripts\UI\Gyroscope\CameraController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" Line="18" Column="20" />
+      <File FileName="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
