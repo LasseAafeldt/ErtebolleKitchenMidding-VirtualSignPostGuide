@@ -20,6 +20,7 @@ public class OpenModelInfo : MonoBehaviour {
     Transform modelPosition;
     CanvasGroup startUP;
     CanvasGroup options;
+    CanvasGroup mogensIntro;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class OpenModelInfo : MonoBehaviour {
         modelPosition = GameObject.Find("ModelPosition").transform;
         checkLanguage();
         canvas = GameObject.Find("WorldSpace").transform.GetChild(0).GetComponent<CanvasGroup>();
+        mogensIntro = GameObject.Find("MogensIntro").GetComponent<CanvasGroup>();
         model = "0";
         hideInfoUI();
 
@@ -63,7 +65,7 @@ public class OpenModelInfo : MonoBehaviour {
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0 && options.alpha == 0)
+        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0 && options.alpha == 0 && mogensIntro.alpha == 0)
         {
             checkLanguage();
             showInfoUI();
@@ -184,12 +186,12 @@ public class OpenModelInfo : MonoBehaviour {
             if (danish)
             {
                 headline.text = "Affaldsbunke";
-                tex.text = "Denne køkkenmødding gav navn til en hel periode af stenalderen: Ertebølletiden, som startede for 7400 år siden og varede 1500 år. Møddingen var menneskeskabt og bestod primært af køkkenaffald. Møddingen har strakt sig mindst 140 meter, og har bredt sig over 20 meter fra kystlinjen ind mod land, og været helt op til 1,9 meter høj.";
+                tex.text = "Denne køkkenmødding gav navn til en hel periode af stenalderen: Ertebølletiden, som startede for 7400 år siden og varede 1000 år. Møddingen var menneskeskabt og bestod primært af køkkenaffald. Møddingen har strakt sig mindst 140 meter, og har bredt sig over 20 meter fra kystlinjen ind mod land, og været helt op til 1,9 meter høj.";
             }
             else
             {
                 headline.text = "Midden";
-                tex.text = "This kitchen midden lends its name to a whole period of the stone age: the Ertebølle period, which started 7400 years ago and lasted 1500 years. The midden was man made and consisted primarily of kitchen waste. The midden was at least 140 meters long and 20 meters wide starting from the coastline going inland. The midden was up to 1.9 meters at its tallest.";
+                tex.text = "This kitchen midden lends its name to a whole period of the stone age: the Ertebølle period, which started 7400 years ago and lasted 1000 years. The midden was man made and consisted primarily of kitchen waste. The midden was at least 140 meters long and 20 meters wide starting from the coastline going inland. The midden was up to 1.9 meters at its tallest.";
             }
         }
         if(model == "Bål")
@@ -287,14 +289,14 @@ public class OpenModelInfo : MonoBehaviour {
             if (danish)
             {
                 headline.text = "Skeletter";
-                tex.text = "Der er blevet fundet et helt skelet i møddingen og mange andre menneskeknogler, "+ 
-                    "hvilket viser at mødding også blev brugt som gravplads.";
+                tex.text = "Der er blevet fundet et helt skelet i møddingen og andre menneskeknogler, "+ 
+                    "hvilket viser at mødding også blev brugt til begravelser.";
             }
             else
             {
                 headline.text = "Skeletons";
-                tex.text = "A whole skeleton was found at the midden as well as many other human bones"+ 
-                    "which indicates that the midden was also used to bury bodies.";
+                tex.text = "A whole skeleton was found at the midden as well as other human bones"+ 
+                    "which indicates that the midden was also used for funerals.";
             }
         }
         if(model == "Hasselnød")
@@ -348,13 +350,13 @@ public class OpenModelInfo : MonoBehaviour {
             {
                 headline.text = "Kystlinjen";
                 tex.text = "I Ertebølletiden var kystlinjen meget højere oppe på land og her så derfor meget anderledes ud. " +
-                    "Ude i vandet var der store østers- og muslingebanker.";
+                    "Ude i vandet var der store østersbanker.";
             }
             else
             {
                 headline.text = "Shoreline";
                 tex.text = "In the Ertebølle period the shoreline was further up on land than it is now. "+ 
-                    "The sea contained large clusters of oysters and mussels.";
+                    "The sea contained large clusters of oysters.";
             }
         }
     }

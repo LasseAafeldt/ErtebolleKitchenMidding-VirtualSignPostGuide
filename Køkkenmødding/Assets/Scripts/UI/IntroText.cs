@@ -8,12 +8,14 @@ public class IntroText : MonoBehaviour {
     public Text introHeadline;
     public Button but;
     CanvasGroup canvas;
+    CanvasGroup canvasMogensintro;
     public static bool isFirst;
     public static int first;
 	// Use this for initialization
 	void Start () {
         isFirst = true;
         canvas = gameObject.GetComponent<CanvasGroup>();
+        canvasMogensintro = GameObject.Find("MogensIntro").GetComponent<CanvasGroup>();
         Debug.Log("pFirst is" + PlayerPrefs.GetInt("pFirst"));
         if(PlayerPrefs.GetInt("pFirst") == 1)
         {
@@ -61,10 +63,19 @@ public class IntroText : MonoBehaviour {
         GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder = 0;
         GameObject.Find("OptionsButtonCanvas").GetComponent<Canvas>().sortingOrder = 0;
         Debug.Log("sort order = "+ GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder);
+
+        if(PlayerPrefs.GetInt("pFirst") == 0)
+        {
+            canvasMogensintro.alpha = 1;
+            canvasMogensintro.interactable = true;
+            canvasMogensintro.blocksRaycasts = true;
+        }
+
         isFirst = false;
     }
     void OnApplicationQuit()
     {
+        Debug.Log("I have quit");
         PlayerPrefs.SetInt("pFirst", 0);
     }
 }
