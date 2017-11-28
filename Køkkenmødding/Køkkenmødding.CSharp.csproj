@@ -258,11 +258,13 @@
     <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
+    <Compile Include="Assets\Scripts\Logging\Acel.cs" />
     <Compile Include="Assets\Scripts\Logging\Logging.cs" />
     <Compile Include="Assets\Scripts\Logging\readLogs.cs" />
     <Compile Include="Assets\Scripts\ModelRotation.cs" />
     <Compile Include="Assets\Scripts\ModelRotationDrag.cs" />
     <Compile Include="Assets\Scripts\UI\CloseOverlay.cs" />
+    <Compile Include="Assets\Scripts\UI\Gyroscope\Accelerometer.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl2.cs" />
     <Compile Include="Assets\Scripts\UI\Gyroscope\CameraControl3.cs" />
@@ -285,6 +287,7 @@
     <None Include="Assets\3rd Party\SkeletonData\animations.txt" />
     <None Include="Assets\3rd Party\Stylized Nature Environment\ReadMe.txt" />
     <None Include="Assets\Resources\Outlined_Diffuse.shader" />
+    <None Include="Assets\Resources\middendata2.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />

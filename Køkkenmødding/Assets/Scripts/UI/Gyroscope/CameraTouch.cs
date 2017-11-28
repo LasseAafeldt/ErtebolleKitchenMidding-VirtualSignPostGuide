@@ -11,9 +11,11 @@ public class CameraTouch : MonoBehaviour {
 	private float yAngleTemp = 0.0f;
 	private Vector3 secondPoint;
 	private Vector3 firstPoint;
+    CanvasGroup canvas;
 
 	// Use this for initialization
 	void Start () {
+        canvas = GameObject.Find("Canvas").GetComponent<CanvasGroup>();
 		cam = Camera.main;
 		xAngle = cam.transform.localRotation.x;
 		yAngle = cam.transform.localRotation.y;
@@ -21,20 +23,23 @@ public class CameraTouch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount > 0) {
-		if (Input.GetTouch(0).phase == TouchPhase.Began)
-		{
-			firstPoint = Input.GetTouch (0).position;
-			xAngleTemp = xAngle;
-			yAngleTemp = yAngle;
-		}
-		if (Input.GetTouch (0).phase == TouchPhase.Moved) {
-				secondPoint = Input.GetTouch (0).position;
-				xAngle = xAngleTemp + (secondPoint.x - firstPoint.x) * 180.0f / Screen.width;
-				yAngle = yAngleTemp + (secondPoint.y - firstPoint.y) * 90.0f / Screen.height;
-				Quaternion vec = (Quaternion.Euler (yAngle, -xAngle, 0.0f));
-				cam.transform.rotation = vec;
-			}
-		}
+        if(canvas.alpha == 0)
+        {
+		    if (Input.touchCount > 0) {
+		    if (Input.GetTouch(0).phase == TouchPhase.Began)
+		    {
+			    firstPoint = Input.GetTouch (0).position;
+			    xAngleTemp = xAngle;
+			    yAngleTemp = yAngle;
+		    }
+		    if (Input.GetTouch (0).phase == TouchPhase.Moved) {
+				    secondPoint = Input.GetTouch (0).position;
+				    xAngle = xAngleTemp + (secondPoint.x - firstPoint.x) * 180.0f / Screen.width;
+				    yAngle = yAngleTemp + (secondPoint.y - firstPoint.y) * 90.0f / Screen.height;
+				    Quaternion vec = (Quaternion.Euler (yAngle, -xAngle, 0.0f));
+				    cam.transform.rotation = vec;
+			    }
+		    }
+        }
 	}
 }
