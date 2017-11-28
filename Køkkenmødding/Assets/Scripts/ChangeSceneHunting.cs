@@ -8,13 +8,15 @@ public class ChangeSceneHunting : MonoBehaviour {
 
     CanvasGroup canvas;
     CanvasGroup load;
+    CanvasGroup options;
 	void Start () {
+        options = GameObject.Find("OptionsCanvas").GetComponent<CanvasGroup>();
         canvas = GameObject.Find("WorldSpace").transform.GetChild(0).GetComponent<CanvasGroup>();
         load = GameObject.Find("Loading").GetComponent<CanvasGroup>();
     }
     void OnMouseDown()
     {
-        if(canvas.alpha == 0)
+        if(canvas.alpha == 0 && options.alpha == 0)
         {
             changeScene();
         }

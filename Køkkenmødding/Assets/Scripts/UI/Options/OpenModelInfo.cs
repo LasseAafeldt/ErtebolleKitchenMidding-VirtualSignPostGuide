@@ -32,12 +32,12 @@ public class OpenModelInfo : MonoBehaviour {
         modelPosition = GameObject.Find("ModelPosition").transform;
         checkLanguage();
         canvas = GameObject.Find("WorldSpace").transform.GetChild(0).GetComponent<CanvasGroup>();
-        mogensIntro = GameObject.Find("MogensIntro").GetComponent<CanvasGroup>();
         model = "0";
         hideInfoUI();
 
         position = GameObject.Find("ModelPosition").transform.position;
         rotation = GameObject.Find("ModelPosition").transform.rotation;
+        mogensIntro = GameObject.Find("MogensIntro").GetComponent<CanvasGroup>();
 
         if(SceneManager.GetActiveScene().name == "Midding")
         {
