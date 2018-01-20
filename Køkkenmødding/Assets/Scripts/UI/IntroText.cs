@@ -26,6 +26,13 @@ public class IntroText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(PlayerPrefs.GetInt("pFirst") == 0 && first == 0)
+        {
+            canvas.alpha = 1;
+            canvas.interactable = true;
+            canvas.blocksRaycasts = true;
+        }
+
         if (isFirst)
         {
             first = 0;
@@ -57,6 +64,7 @@ public class IntroText : MonoBehaviour {
 	}
     void click()
     {
+        first = 1;
         canvas.alpha = 0;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
@@ -77,5 +85,13 @@ public class IntroText : MonoBehaviour {
     {
         Debug.Log("I have quit");
         PlayerPrefs.SetInt("pFirst", 0);
+    }
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            PlayerPrefs.SetInt("pFirst", 0);
+            first = 0;
+        }
     }
 }
