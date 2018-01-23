@@ -6,12 +6,20 @@ public class driftTest : MonoBehaviour
 {
     public float driftThreshold = 1;
 
+    public GameObject empty;
+
     private bool gyroEnabled;
     private Gyroscope gyro;
 
     private GameObject cameraContainer;
     private Quaternion rot;
     private Quaternion previousRotation;
+    private bool wasCalled = false;
+    private bool first = true;
+    private bool drift = false;
+    private float angle;
+    GameObject oldMarker;
+    GameObject marker;
 
     // Use this for initialization
     void Start()
@@ -21,6 +29,8 @@ public class driftTest : MonoBehaviour
         transform.SetParent(cameraContainer.transform);
         gyroEnabled = EnableGyro();
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+        first = true;
+        wasCalled = false;
     }
 
     // Update is called once per frame
@@ -28,22 +38,11 @@ public class driftTest : MonoBehaviour
     {
         if (gyroEnabled)
         {
-            driftCalculation();
+            StartCoroutine(driftDetermination());
             transform.localRotation = gyro.attitude * rot;
         }
     }
 
-    private void LateUpdate() // the actual drift correction
-    {
-        if (driftCalculation())
-        {
-            transform.localRotation = gyro.attitude * Quaternion.Inverse(rot);
-        }
-        else
-        {
-            previousRotation = transform.localRotation;
-        }
-    }
     private bool EnableGyro()
     {
         if (SystemInfo.supportsGyroscope)
@@ -59,14 +58,32 @@ public class driftTest : MonoBehaviour
         return false;
     }
 
-    bool driftCalculation() // the calculation of drift occurence
+    IEnumerator driftDetermination() //determines if there is drift and prints true if there is and false if there is not
     {
-        if(Mathf.Abs(Quaternion.Angle(previousRotation, transform.localRotation)) < driftThreshold)
+        wasCalled = true;
+        if (first == false)
         {
-            return true;
+            oldMarker = marker;
         }
+        yield return new WaitForSeconds(0);
+        marker = Instantiate(empty, gameObject.transform.forward, transform.rotation);
 
-        return false;
+        if (oldMarker != null)
+        {
+            angle = Vector3.Angle(oldMarker.transform.position, marker.transform.position));
+            if (angle <= driftThreshold)
+            {
+                drift = true;
+            }
+            else if(angle > driftThreshold)
+            {
+                drift = false;
+            }
+            Destroy(oldMarker);
+        }
+        Debug.Log(drift);
+        first = false;
+        wasCalled = false;
     }
 
 }
