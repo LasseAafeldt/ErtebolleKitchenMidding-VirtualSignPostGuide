@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\driftTest.cs" />
      <Compile Include="Assets\Scripts\CameraMethodController.cs" />
      <Compile Include="Assets\Scripts\CameraRotation.cs" />
      <Compile Include="Assets\Scripts\cameraTransform.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\Scripts\HuntingGame\Text\HuntingInfo.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
      <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
+     <Compile Include="Assets\Scripts\Logging\IntroReset.cs" />
      <Compile Include="Assets\Scripts\Logging\Logging.cs" />
      <Compile Include="Assets\Scripts\Logging\readLogs.cs" />
      <Compile Include="Assets\Scripts\ModelRotation.cs" />
@@ -100,6 +102,7 @@
      <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
      <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
      <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
+     <Compile Include="Assets\TestRot.cs" />
      <None Include="Assets\Resources\middendata2.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Resources\Outlined_Diffuse.shader" />
