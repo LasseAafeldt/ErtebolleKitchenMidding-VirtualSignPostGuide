@@ -7,19 +7,21 @@ public class driftTest : MonoBehaviour
     public float driftThreshold = 1;
 
     public GameObject empty;
+    public float timeInterval = 1;
 
     private bool gyroEnabled;
     private Gyroscope gyro;
 
     private GameObject cameraContainer;
     private Quaternion rot;
-    private Quaternion previousRotation;
+    //private Quaternion previousRotation;
     private bool wasCalled = false;
     private bool first = true;
     private bool drift = false;
     private float angle;
-    GameObject oldMarker;
-    GameObject marker;
+    Quaternion oldRotation;
+    Quaternion currentRotation;
+    Quaternion previousRotation;
 
     // Use this for initialization
     void Start()
@@ -39,7 +41,7 @@ public class driftTest : MonoBehaviour
         if (gyroEnabled)
         {
             StartCoroutine(driftDetermination());
-            transform.localRotation = gyro.attitude * rot;
+            transform.localRotation = gyro.attitude * rot * Quaternion.Inverse(previousRotation);
         }
     }
 
@@ -58,7 +60,27 @@ public class driftTest : MonoBehaviour
         return false;
     }
 
-    IEnumerator driftDetermination() //determines if there is drift and prints true if there is and false if there is not
+    IEnumerator driftDetermination()
+    {
+        wasCalled = true;
+        oldRotation = transform.rotation;
+        yield return new WaitForSeconds(timeInterval);
+        currentRotation = transform.rotation;
+        angle = Quaternion.Angle(oldRotation, currentRotation);
+        if(angle <= driftThreshold)
+        {
+            drift = true;
+            previousRotation = oldRotation * Quaternion.Inverse(currentRotation);
+        }
+        else if(angle > driftThreshold)
+        {
+            drift = false;
+            previousRotation = new Quaternion(0, 0, 0, 0);
+        }
+
+        wasCalled = false;
+    }
+    /*IEnumerator driftDetermination() //determines if there is drift and prints true if there is and false if there is not
     {
         wasCalled = true;
         if (first == false)
@@ -84,6 +106,6 @@ public class driftTest : MonoBehaviour
         Debug.Log(drift);
         first = false;
         wasCalled = false;
-    }
+    }*/
 
 }
