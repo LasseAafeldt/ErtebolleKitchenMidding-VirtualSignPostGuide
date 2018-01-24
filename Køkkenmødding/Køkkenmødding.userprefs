@@ -6,7 +6,7 @@
       <File FileName="Assets\Scripts\Logging\Logging.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\Gyroscope\CameraController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\Gyroscope\CameraTouch.cs" Line="1" Column="1" />
-      <File FileName="Assets\driftTest.cs" Line="70" Column="8" />
+      <File FileName="Assets\driftTest.cs" Line="74" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

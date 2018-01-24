@@ -70,7 +70,7 @@ public class driftTest : MonoBehaviour
 
         if (oldMarker != null)
         {
-            angle = Vector3.Angle(oldMarker.transform.position, marker.transform.position));
+            angle = Vector3.Angle(oldMarker.transform.position, marker.transform.position);
             if (angle <= driftThreshold)
             {
                 drift = true;
