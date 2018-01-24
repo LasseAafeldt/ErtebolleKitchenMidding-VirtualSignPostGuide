@@ -31,7 +31,8 @@ public class TestRot : MonoBehaviour
         if(wasCalled == false)
         {
             //StartCoroutine(differenceInRotation(tim, transform));
-            StartCoroutine(spawn(tim));
+            //StartCoroutine(spawn(tim));
+            StartCoroutine(angle(tim));
         }
     }
 
@@ -88,6 +89,17 @@ public class TestRot : MonoBehaviour
             Destroy(OldMarker);
         }
         first = false;
+        wasCalled = false;
+    }
+
+    IEnumerator angle(float time)
+    {
+        wasCalled = true;
+        Quaternion old = transform.rotation;
+        yield return new WaitForSeconds(time);
+        Quaternion newrot = transform.rotation;
+
+        Debug.Log(Quaternion.Angle(old, newrot));
         wasCalled = false;
     }
 }

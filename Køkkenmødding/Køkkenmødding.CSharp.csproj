@@ -231,6 +231,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\driftTest.cs" />
     <Compile Include="Assets\Scripts\CameraMethodController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\cameraTransform.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="Assets\Scripts\HuntingGame\Text\Intro.cs" />
     <Compile Include="Assets\Scripts\HuntingGame\Text\Kills.cs" />
     <Compile Include="Assets\Scripts\Logging\Acel.cs" />
+    <Compile Include="Assets\Scripts\Logging\IntroReset.cs" />
     <Compile Include="Assets\Scripts\Logging\Logging.cs" />
     <Compile Include="Assets\Scripts\Logging\readLogs.cs" />
     <Compile Include="Assets\Scripts\ModelRotation.cs" />
@@ -282,6 +284,7 @@
     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
     <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
+    <Compile Include="Assets\TestRot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Party\SkeletonData\animations.txt" />
