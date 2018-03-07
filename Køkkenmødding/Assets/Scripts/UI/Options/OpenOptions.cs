@@ -20,5 +20,9 @@ public class OpenOptions : MonoBehaviour {
         canvas.alpha = 1;
         canvas.interactable = true;
         canvas.blocksRaycasts = true;
+        if (button.CompareTag("gyrobut"))
+        {
+            HierarchyHandler.gyroCanvas.SetActive(false);
+        }
     }
 }
