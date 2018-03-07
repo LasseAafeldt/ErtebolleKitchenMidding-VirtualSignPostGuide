@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class driftTest : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class driftTest : MonoBehaviour
     Quaternion oldRotation;
     Quaternion currentRotation;
     Quaternion previousRotation;
+    Toast activeGyro;
 
     // Use this for initialization
     void Start()
@@ -30,6 +32,12 @@ public class driftTest : MonoBehaviour
         cameraContainer.transform.position = transform.position;
         transform.SetParent(cameraContainer.transform);
         gyroEnabled = EnableGyro();
+        /*if (!EnableGyro())
+        {
+            show the UI element here
+            Toast.Create("", "No Gyroscope in device");
+            activeGyro.Show();
+        }*/
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         first = true;
         wasCalled = false;
@@ -41,7 +49,9 @@ public class driftTest : MonoBehaviour
         if (gyroEnabled)
         {
             StartCoroutine(driftDetermination());
-            transform.localRotation = gyro.attitude * rot * Quaternion.Inverse(previousRotation);
+            //transform.localRotation = gyro.attitude * rot * Quaternion.Inverse(previousRotation);
+            Quaternion gyroPlusRot = gyro.attitude * rot;
+            transform.localEulerAngles = gyroPlusRot.eulerAngles + previousRotation.eulerAngles;
         }
     }
 
@@ -70,7 +80,8 @@ public class driftTest : MonoBehaviour
         if(angle <= driftThreshold)
         {
             drift = true;
-            previousRotation = oldRotation * Quaternion.Inverse(currentRotation);
+            //previousRotation = oldRotation * Quaternion.Inverse(currentRotation);
+            previousRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
         }
         else if(angle > driftThreshold)
         {

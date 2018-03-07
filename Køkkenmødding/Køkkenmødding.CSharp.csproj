@@ -278,12 +278,14 @@
     <Compile Include="Assets\Scripts\UI\Options\AudioHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ChooseLanguage.cs" />
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\GyroNotEnabled.cs" />
     <Compile Include="Assets\Scripts\UI\Options\MogensText.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Options\RotationMethod.cs" />
     <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
+    <Compile Include="Assets\Scripts\UI\Options\VolumeControl.cs" />
     <Compile Include="Assets\TestRot.cs" />
   </ItemGroup>
   <ItemGroup>

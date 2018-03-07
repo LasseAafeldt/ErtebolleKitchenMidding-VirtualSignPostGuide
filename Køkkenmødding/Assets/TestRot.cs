@@ -8,15 +8,15 @@ public class TestRot : MonoBehaviour
     public float driftThreshold;
     Quaternion lastRotation;
     float angularDifferenceBetweenLastRotationAndCurrentRotation = 0;
-    public bool wasCalled = false;
-    public bool first = true;
-    Vector3 oldRotation;
-    Vector3 newPosition;
-    public GameObject rotationManager;
-    public GameObject marker;
-    GameObject Marker;
-    GameObject OldMarker;
-    public float tim = 2;
+    private bool wasCalled = false;
+    private bool first = true;
+    private bool drift = false;
+    private float angle;
+    Quaternion oldRotation;
+    Quaternion currentRotation;
+    Quaternion previousRotation;
+    public float threshold;
+    public float timeInterval = 0;
 
     void Start()
     {
@@ -27,13 +27,16 @@ public class TestRot : MonoBehaviour
     {
         //angularDifference(lastRotation, transform.rotation);
         //driftHandler(driftThreshold);
-        transform.Rotate(Vector3.up, Time.deltaTime * speed);
         if(wasCalled == false)
         {
             //StartCoroutine(differenceInRotation(tim, transform));
             //StartCoroutine(spawn(tim));
-            StartCoroutine(angle(tim));
+            StartCoroutine(driftDetermination());
         }
+        transform.Rotate(Vector3.up, Time.deltaTime * speed);
+        //transform.localEulerAngles = previousRotation.eulerAngles;
+        Debug.Log(previousRotation.eulerAngles);
+
     }
 
     private void LateUpdate()
@@ -60,7 +63,29 @@ public class TestRot : MonoBehaviour
         }
     }
 
-    IEnumerator differenceInRotation(float time, Transform rotatingObject)
+    IEnumerator driftDetermination()
+    {
+        wasCalled = true;
+        oldRotation = transform.rotation;
+        yield return new WaitForSeconds(timeInterval);
+        currentRotation = transform.rotation;
+        angle = Quaternion.Angle(oldRotation, currentRotation);
+        if (angle <= driftThreshold)
+        {
+            drift = true;
+            //previousRotation = oldRotation * Quaternion.Inverse(currentRotation);
+            previousRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
+        }
+        else if (angle > driftThreshold)
+        {
+            drift = false;
+            previousRotation = new Quaternion(0, 0, 0, 0);
+        }
+
+        wasCalled = false;
+    }
+
+    /*IEnumerator differenceInRotation(float time, Transform rotatingObject)
     {
         wasCalled = true;
         //Vector3 previousRotation = rotatingObject.rotation.eulerAngles;
@@ -101,5 +126,5 @@ public class TestRot : MonoBehaviour
 
         Debug.Log(Quaternion.Angle(old, newrot));
         wasCalled = false;
-    }
+    }*/
 }
