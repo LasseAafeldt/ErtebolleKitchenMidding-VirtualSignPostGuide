@@ -77,7 +77,7 @@ public class driftTest : MonoBehaviour
             drift = false;
             previousRotation = new Quaternion(0, 0, 0, 0);
         }
-
+		Debug.Log (drift);
         wasCalled = false;
     }
     /*IEnumerator driftDetermination() //determines if there is drift and prints true if there is and false if there is not

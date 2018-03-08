@@ -134,7 +134,7 @@ cfa93710d56cd4da2a3b2eec27bc1139 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.IntroReset
 231d95b22f8300112b39050c5e5c422d Assembly-CSharp.dll:.MogenIntroText
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterBasic
-5781c8da921905dd6abff317f78d213e Assembly-CSharp.dll:.driftTest
+ab1721252f26cf1bad05c081088a14ea Assembly-CSharp.dll:.driftTest
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ModelRotationDrag
 fc89a31f248eb512f54949f4f5088a5a Assembly-CSharp.dll:.ArrowBack
 43c4aa1430d9b12e0c47b93235ead657 Assembly-CSharp.dll:.ShootArrow
