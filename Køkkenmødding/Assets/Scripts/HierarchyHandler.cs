@@ -10,6 +10,7 @@ public class HierarchyHandler : MonoBehaviour {
     public static GameObject closeoverlay;
     public static GameObject mute;
     public static GameObject speaker;
+    public static GameObject gyroCanvas;
 	void Start () {
         //optionsCanvas = GameObject.Find("OptionsCanvas");
         //cookingFacts = GameObject.Find("CookingFacts");
@@ -18,6 +19,8 @@ public class HierarchyHandler : MonoBehaviour {
         mute = GameObject.Find("MuteIcon");
         speaker = GameObject.Find("SpeakerIcon");
 
+        gyroCanvas = GameObject.Find("GyroNotEnabled");
+        gyroCanvas.SetActive(false);
         //optionsCanvas.SetActive(false);
         //cookingFacts.SetActive(false);
         closeoverlay.SetActive(false);

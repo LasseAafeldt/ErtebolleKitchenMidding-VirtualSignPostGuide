@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/midden2.unity
+=======
+- path: Assets/Scenes/Others/Credits.unity
+>>>>>>> 7c66f129be7fa1a4c6293b1c2dc67f1360fd3890
   isLoaded: 1
   isActive: 1
