@@ -21,6 +21,7 @@ public class OpenModelInfo : MonoBehaviour {
     CanvasGroup startUP;
     CanvasGroup options;
     CanvasGroup mogensIntro;
+    GameObject gyroNotEnabled;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class OpenModelInfo : MonoBehaviour {
         position = GameObject.Find("ModelPosition").transform.position;
         rotation = GameObject.Find("ModelPosition").transform.rotation;
         mogensIntro = GameObject.Find("MogensIntro").GetComponent<CanvasGroup>();
+        gyroNotEnabled = GameObject.Find("GyroNotEnabled");
 
         if(SceneManager.GetActiveScene().name == "Midding")
         {
@@ -65,7 +67,7 @@ public class OpenModelInfo : MonoBehaviour {
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0 && options.alpha == 0 && mogensIntro.alpha == 0)
+        if (Input.GetMouseButtonDown(0) && canvas.alpha == 0 && startUP.alpha == 0 && options.alpha == 0 && mogensIntro.alpha == 0 && gyroNotEnabled.activeInHierarchy == false)
         {
             checkLanguage();
             showInfoUI();

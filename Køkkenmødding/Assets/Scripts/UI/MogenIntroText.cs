@@ -30,5 +30,9 @@ public class MogenIntroText : MonoBehaviour {
         canvas.alpha = 0;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
+        if (!SystemInfo.supportsGyroscope)
+        {
+            HierarchyHandler.gyroCanvas.SetActive(true);
+        }
     }
 }
