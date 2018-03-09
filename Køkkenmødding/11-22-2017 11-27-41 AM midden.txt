@@ -1,1 +1,0 @@
-Touch;AppOnTime;AudioPlays;GameOnTime;TouchPositionX;TouchPositionY;TouchPositionZ;CameraRotationX;CameraRotationY;CameraRotationZ
