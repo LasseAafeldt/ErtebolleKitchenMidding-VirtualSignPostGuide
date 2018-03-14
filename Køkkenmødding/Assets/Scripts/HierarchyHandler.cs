@@ -11,6 +11,9 @@ public class HierarchyHandler : MonoBehaviour {
     public static GameObject mute;
     public static GameObject speaker;
     public static GameObject gyroCanvas;
+    public static bool camConfig = false;
+    public GameObject camConfigCanvas;
+    public CanvasGroup optionsCanvasGrp;
 	void Start () {
         //optionsCanvas = GameObject.Find("OptionsCanvas");
         //cookingFacts = GameObject.Find("CookingFacts");
@@ -24,9 +27,28 @@ public class HierarchyHandler : MonoBehaviour {
         //optionsCanvas.SetActive(false);
         //cookingFacts.SetActive(false);
         closeoverlay.SetActive(false);
+        camConfig = false;
+        optionsCanvasGrp = GameObject.Find("OptionsCanvas").GetComponent<CanvasGroup>();
         //Debug.Log("i have run");     
 	}
 	
-	// Update is called once per frame
-	
+    public void CamConfig()
+    {
+        camConfig = !camConfig;
+        Debug.Log("cam config = " + camConfig);
+        if (camConfig)
+        {
+            camConfigCanvas.SetActive(true);
+            optionsCanvasGrp.alpha = 0;
+            optionsCanvasGrp.interactable = false;
+            optionsCanvasGrp.blocksRaycasts = false;
+        }
+        else
+        {
+            camConfigCanvas.SetActive(false);
+            optionsCanvasGrp.alpha = 1;
+            optionsCanvasGrp.interactable = true;
+            optionsCanvasGrp.blocksRaycasts = true;
+        }
+    }
 }

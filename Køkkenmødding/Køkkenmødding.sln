@@ -1,18 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Køkkenmødding", "Køkkenmødding.csproj", "{5434BC8C-C5E4-0A05-F864-57CEC9F309E6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Køkkenmødding.Plugins", "Køkkenmødding.Plugins.csproj", "{1FE346B9-ED59-C0CD-F6CB-6967445C5359}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Køkkenmødding.Editor", "Køkkenmødding.Editor.csproj", "{3AB9AB6B-4DFC-9134-BF01-9A6F7BFCB150}"
-=======
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Køkkenmødding.CSharp", "Køkkenmødding.CSharp.csproj", "{919973E2-B0F0-00D3-DB8C-0E6CD1EAA1C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Køkkenmødding.CSharp.Plugins", "Køkkenmødding.CSharp.Plugins.csproj", "{78EE5291-AEBE-5AEC-2A0F-6029972D3FF0}"
->>>>>>> 7c66f129be7fa1a4c6293b1c2dc67f1360fd3890
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Køkkenmødding.CSharp.Editor", "Køkkenmødding.CSharp.Editor.csproj", "{C809AC18-E0B8-A1DC-018D-26D561630FFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,20 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-<<<<<<< HEAD
-		{5434BC8C-C5E4-0A05-F864-57CEC9F309E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5434BC8C-C5E4-0A05-F864-57CEC9F309E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5434BC8C-C5E4-0A05-F864-57CEC9F309E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5434BC8C-C5E4-0A05-F864-57CEC9F309E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FE346B9-ED59-C0CD-F6CB-6967445C5359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FE346B9-ED59-C0CD-F6CB-6967445C5359}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FE346B9-ED59-C0CD-F6CB-6967445C5359}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FE346B9-ED59-C0CD-F6CB-6967445C5359}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AB9AB6B-4DFC-9134-BF01-9A6F7BFCB150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AB9AB6B-4DFC-9134-BF01-9A6F7BFCB150}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AB9AB6B-4DFC-9134-BF01-9A6F7BFCB150}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AB9AB6B-4DFC-9134-BF01-9A6F7BFCB150}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{919973E2-B0F0-00D3-DB8C-0E6CD1EAA1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{919973E2-B0F0-00D3-DB8C-0E6CD1EAA1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{919973E2-B0F0-00D3-DB8C-0E6CD1EAA1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,7 +21,10 @@ Global
 		{78EE5291-AEBE-5AEC-2A0F-6029972D3FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78EE5291-AEBE-5AEC-2A0F-6029972D3FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78EE5291-AEBE-5AEC-2A0F-6029972D3FF0}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 7c66f129be7fa1a4c6293b1c2dc67f1360fd3890
+		{C809AC18-E0B8-A1DC-018D-26D561630FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C809AC18-E0B8-A1DC-018D-26D561630FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C809AC18-E0B8-A1DC-018D-26D561630FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C809AC18-E0B8-A1DC-018D-26D561630FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

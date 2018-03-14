@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
+using UnityEngine.SceneManagement;
 
 public class driftTest : MonoBehaviour
 {
@@ -22,8 +23,12 @@ public class driftTest : MonoBehaviour
     private float angle;
     Quaternion oldRotation;
     Quaternion currentRotation;
-    Quaternion previousRotation;
+    Quaternion driftRotation;
     Toast activeGyro;
+    Quaternion newRot;
+    Quaternion oldRot;
+    Quaternion actualRot;
+    private bool conRot = false;
 
     // Use this for initialization
     void Start()
@@ -51,7 +56,21 @@ public class driftTest : MonoBehaviour
             StartCoroutine(driftDetermination());
             //transform.localRotation = gyro.attitude * rot * Quaternion.Inverse(previousRotation);
             Quaternion gyroPlusRot = gyro.attitude * rot;
-            transform.localEulerAngles = gyroPlusRot.eulerAngles + previousRotation.eulerAngles;
+            if(SceneManager.GetActiveScene().name == "Midding")
+            {
+                StartCoroutine(continousRotation());
+                transform.localEulerAngles = actualRot.eulerAngles + driftRotation.eulerAngles;
+            }
+            if (SceneManager.GetActiveScene().name == "HuntingGame")
+            {
+                transform.localEulerAngles = gyroPlusRot.eulerAngles + driftRotation.eulerAngles;
+                /*if(conRot == true)
+                {
+                    StopCoroutine(continousRotation());
+                    conRot = false;
+                }*/
+            }
+
         }
     }
 
@@ -74,22 +93,36 @@ public class driftTest : MonoBehaviour
     {
         wasCalled = true;
         oldRotation = transform.rotation;
-        yield return new WaitForSeconds(timeInterval);
+        yield return 0;
         currentRotation = transform.rotation;
         angle = Quaternion.Angle(oldRotation, currentRotation);
         if(angle <= driftThreshold)
         {
             drift = true;
-            //previousRotation = oldRotation * Quaternion.Inverse(currentRotation);
-            previousRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
+            //adding drift into driftRotation veriable continously
+            driftRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
         }
         else if(angle > driftThreshold)
         {
             drift = false;
-            previousRotation = new Quaternion(0, 0, 0, 0);
         }
 		Debug.Log (drift);
         wasCalled = false;
+    }
+
+    IEnumerator continousRotation()
+    {
+        conRot = true;
+        if(SceneManager.GetActiveScene().name == "Midding" && !HierarchyHandler.camConfig)
+        {
+            if(oldRotation != null)
+            {
+                actualRot.eulerAngles = oldRotation.eulerAngles - newRot.eulerAngles; 
+            }
+            newRot = gyro.attitude;
+            yield return 0;
+            oldRotation = newRot;
+        }
     }
     /*IEnumerator driftDetermination() //determines if there is drift and prints true if there is and false if there is not
     {
