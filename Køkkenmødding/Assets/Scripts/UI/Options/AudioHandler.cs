@@ -31,16 +31,26 @@ public class AudioHandler : MonoBehaviour {
 
     IEnumerator selectSound()
     {
+        AudioClip currentClip;
         if(ChooseLanguage.language == 0)
         {
             for(int i = 0; i < audioArray.Length; i++)
             {
                 if(model == audioArray[i].name)
                 {
-                    Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
+                    if (SecretVoice.secretVoiceEnabled)
+                    {
+                        Camera.main.GetComponent<AudioSource>().clip = audioArray[i+1];
+                        currentClip = audioArray[i + 1];
+                    }
+                    else
+                    {
+                        Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
+                        currentClip = audioArray[i];
+                    }
                     Camera.main.GetComponent<AudioSource>().Play();
 				    audioPlayed++;
-                    yield return new WaitForSeconds(audioArray[i].length);
+                    yield return new WaitForSeconds(currentClip.length);
                     voice = false;
                     GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
                 }
