@@ -8,12 +8,15 @@ public class AudioHandler : MonoBehaviour {
     public static bool voice;
 	public static int audioPlayed = 0;
     AudioClip[] audioArray;
+    AudioClip[] audioArrayEnglish;
 
     string model;
     //AudioClip audio;
 	void Start () {
         audioArray = Resources.LoadAll<AudioClip>("Audio/Voice/Dansk");//load all audioclips in this folder
+        audioArrayEnglish = Resources.LoadAll<AudioClip>("Audio/Voice/Engelsk");//load all audioclips in this folder
         but.onClick.AddListener(delegate { click(); });
+
 	}
 	
     void click()
@@ -28,18 +31,47 @@ public class AudioHandler : MonoBehaviour {
 
     IEnumerator selectSound()
     {
-        for(int i = 0; i < audioArray.Length; i++)
+        AudioClip currentClip;
+        if(ChooseLanguage.language == 0)
         {
-            if(model == audioArray[i].name)
+            for(int i = 0; i < audioArray.Length; i++)
             {
-                Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
-                Camera.main.GetComponent<AudioSource>().Play();
-				audioPlayed++;
-                yield return new WaitForSeconds(audioArray[i].length);
-                voice = false;
-                GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
+                if(model == audioArray[i].name)
+                {
+                    if (SecretVoice.secretVoiceEnabled)
+                    {
+                        Camera.main.GetComponent<AudioSource>().clip = audioArray[i+1];
+                        currentClip = audioArray[i + 1];
+                    }
+                    else
+                    {
+                        Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
+                        currentClip = audioArray[i];
+                    }
+                    Camera.main.GetComponent<AudioSource>().Play();
+				    audioPlayed++;
+                    yield return new WaitForSeconds(currentClip.length);
+                    voice = false;
+                    GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
+                }
+            }
+        }
+        if(ChooseLanguage.language == 1)
+        {
+            for (int i = 0; i < audioArrayEnglish.Length; i++)
+            {
+                Debug.Log(audioArrayEnglish[i].name);
+                if (model == audioArrayEnglish[i].name)
+                {
+                    Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
+                    Camera.main.GetComponent<AudioSource>().Play();
+                    audioPlayed++;
+                    yield return new WaitForSeconds(audioArray[i].length);
+                    voice = false;
+                    GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
+                }
             }
         }
     }
+ }
 
-}

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Others/Credits.unity
+- path: Assets/Scenes/Others/Midding.unity
   isLoaded: 1
   isActive: 1
