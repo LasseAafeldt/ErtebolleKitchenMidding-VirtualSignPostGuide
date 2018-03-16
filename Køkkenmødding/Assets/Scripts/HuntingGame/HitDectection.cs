@@ -16,7 +16,7 @@ public class HitDectection : MonoBehaviour {
     {
         if (col.gameObject.CompareTag("Animal"))
         {
-            Debug.Log("Hit!"); // do something when hitting the animal
+            //Debug.Log("Hit!"); // do something when hitting the animal
             // use animalDoStuff to stop the arrow shooting here.
             //animalDoStuff = true;
             StartCoroutine(destroyAnimal(col));
@@ -25,7 +25,7 @@ public class HitDectection : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Miss!"); // do something when missing the animal
+            //Debug.Log("Miss!"); // do something when missing the animal
         }
         collision = true;
         transform.parent = col.transform;
@@ -38,7 +38,7 @@ public class HitDectection : MonoBehaviour {
         sound.GetComponent<AudioSource>().Play();
         //col.gameObject.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audio/SFX/Deer 2"));
         yield return new WaitForSeconds(1.5F);
-        Debug.Log(col.gameObject);
+        //Debug.Log(col.gameObject);
         Destroy(col.gameObject);
         SpawnAnimals.currentAnimals--;
         animalDoStuff = false;

@@ -10,31 +10,34 @@ public class CameraMethodController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gyroscopeOn = true;
+        setCamControl();
         gyro.onClick.AddListener(delegate { gyroClick(); });
         swipe.onClick.AddListener(delegate { swipeClick(); });
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        if (gyroscopeOn)
-        {
-            gameObject.GetComponent<CameraControl3>().enabled = true;
-            gameObject.GetComponent<CameraTouch>().enabled = false;
-        }
-        if (!gyroscopeOn)
-        {
-            gameObject.GetComponent<CameraControl3>().enabled = false;
-            gameObject.GetComponent<CameraTouch>().enabled = true;
-        }
-	}
 
     void gyroClick()
     {
         gyroscopeOn = true;
+        setCamControl();
     }
 
     void swipeClick()
     {
         gyroscopeOn = false;
+        setCamControl();
+    }
+    void setCamControl()
+    {
+        if (gyroscopeOn)
+        {
+            gameObject.GetComponent<driftTest>().enabled = true;
+            gameObject.GetComponent<CameraTouch>().enabled = false;
+        }
+        if (!gyroscopeOn)
+        {
+            gameObject.GetComponent<driftTest>().enabled = false;
+            gameObject.GetComponent<CameraTouch>().enabled = true;
+        }
     }
 }

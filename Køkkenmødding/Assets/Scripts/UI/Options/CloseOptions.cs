@@ -19,6 +19,6 @@ public class CloseOptions : MonoBehaviour {
         canvas.alpha = 0;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
-        Debug.Log("im running options");
+        //Debug.Log("im running options");
     }
 }

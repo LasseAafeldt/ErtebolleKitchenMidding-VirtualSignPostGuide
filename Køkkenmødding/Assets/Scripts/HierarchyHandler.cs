@@ -28,7 +28,7 @@ public class HierarchyHandler : MonoBehaviour {
         //cookingFacts.SetActive(false);
         closeoverlay.SetActive(false);
         camConfig = false;
-        optionsCanvasGrp = GameObject.Find("OptionsCanvas").GetComponent<CanvasGroup>();
+        //optionsCanvasGrp = GameObject.Find("ScreenSpace").GetComponent<CanvasGroup>();
         //Debug.Log("i have run");     
 	}
 	

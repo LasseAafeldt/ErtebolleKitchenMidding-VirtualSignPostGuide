@@ -20,6 +20,15 @@ public class RotationMethod : MonoBehaviour
         button.onClick.AddListener(delegate { click(); });
     }
 
+    public void setSwipeControl()
+    {
+        gyro = false;
+        Debug.Log("finger");
+
+        GameObject.Find("Finger").gameObject.GetComponent<RawImage>().color = selected;
+        GameObject.Find("Gyro").gameObject.GetComponent<RawImage>().color = deSelected;
+    }
+
     void click()
     {
         if (button.CompareTag("Gyro"))

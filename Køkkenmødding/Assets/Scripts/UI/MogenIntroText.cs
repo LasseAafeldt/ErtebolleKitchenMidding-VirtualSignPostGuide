@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class MogenIntroText : MonoBehaviour {
     public Text tex;
     public Button but;
+    public DisableOptions disOption;
+    public GameObject optionsCanvasObj;
     CanvasGroup canvas;
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,13 @@ public class MogenIntroText : MonoBehaviour {
         if (!SystemInfo.supportsGyroscope)
         {
             HierarchyHandler.gyroCanvas.SetActive(true);
+            if (optionsCanvasObj.activeInHierarchy == true)
+            {
+                disOption.disable();
+            }
+        }else
+        {
+            disOption.enable();
         }
     }
 }

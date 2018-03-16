@@ -231,6 +231,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DisableOptions.cs" />
     <Compile Include="Assets\driftTest.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
@@ -323,7 +324,6 @@
     <Compile Include="Assets\Scripts\UI\Options\CloseOptions.cs" />
     <Compile Include="Assets\Scripts\UI\Options\Credits.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ExitApp.cs" />
-    <Compile Include="Assets\Scripts\UI\Options\GyroCanvas.cs" />
     <Compile Include="Assets\Scripts\UI\Options\GyroNotEnabled.cs" />
     <Compile Include="Assets\Scripts\UI\Options\MogensText.cs" />
     <Compile Include="Assets\Scripts\UI\Options\OpenModelInfo.cs" />
@@ -332,6 +332,7 @@
     <Compile Include="Assets\Scripts\UI\Options\SoundToggle.cs" />
     <Compile Include="Assets\Scripts\UI\Options\ToggleIcons.cs" />
     <Compile Include="Assets\Scripts\UI\Options\VolumeControl.cs" />
+    <Compile Include="Assets\SecretVoice.cs" />
     <Compile Include="Assets\TestRot.cs" />
   </ItemGroup>
   <ItemGroup>
