@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 using UnityEngine.SceneManagement;
 
 public class driftTest : MonoBehaviour
@@ -24,7 +23,6 @@ public class driftTest : MonoBehaviour
     Quaternion oldRotation;
     Quaternion currentRotation;
     Quaternion driftRotation;
-    Toast activeGyro;
     Quaternion newRot;
     Quaternion oldRot;
     Quaternion actualRot;

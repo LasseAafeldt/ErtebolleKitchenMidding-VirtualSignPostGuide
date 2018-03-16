@@ -29,15 +29,15 @@ public class CameraMethodController : MonoBehaviour {
     }
     void setCamControl()
     {
-        if (gyroscopeOn)
+        if (gyroscopeOn) //CameraControl3
         {
-            gameObject.GetComponent<driftTest>().enabled = true;
-            gameObject.GetComponent<CameraTouch>().enabled = false;
+			gameObject.GetComponent<CameraControl3>().enabled = true;
+			gameObject.GetComponent<CameraRotation>().enabled = false;
         }
         if (!gyroscopeOn)
         {
-            gameObject.GetComponent<driftTest>().enabled = false;
-            gameObject.GetComponent<CameraTouch>().enabled = true;
+			gameObject.GetComponent<CameraControl3>().enabled = false;
+            gameObject.GetComponent<CameraRotation>().enabled = true;
         }
     }
 }
