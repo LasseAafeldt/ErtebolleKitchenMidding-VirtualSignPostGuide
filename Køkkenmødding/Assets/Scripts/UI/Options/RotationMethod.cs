@@ -31,6 +31,8 @@ public class RotationMethod : MonoBehaviour
 
         GameObject.Find("Finger").gameObject.GetComponent<RawImage>().color = selected;
         GameObject.Find("Gyro").gameObject.GetComponent<RawImage>().color = deSelected;
+        GameObject.Find("Main Camera").gameObject.GetComponent<CameraControl3>().enabled = false;
+        GameObject.Find("Main Camera").gameObject.GetComponent<CameraTouch>().enabled = true;
     }
 
     public bool CheckGyro()
@@ -60,7 +62,7 @@ public class RotationMethod : MonoBehaviour
 
 			GameObject.Find("Gyro").gameObject.transform.gameObject.GetComponent<RawImage>().color = selected;
             GameObject.Find("Finger").gameObject.GetComponent<RawImage>().color = deSelected;
-			GameObject.Find("Main Camera").gameObject.GetComponent<driftTest>().enabled = true;
+			GameObject.Find("Main Camera").gameObject.GetComponent<CameraControl3>().enabled = true;
 			GameObject.Find("Main Camera").gameObject.GetComponent<CameraTouch>().enabled = false;
 
         }
@@ -73,7 +75,7 @@ public class RotationMethod : MonoBehaviour
 
 			GameObject.Find("Finger").gameObject.transform.gameObject.GetComponent<RawImage>().color = selected;
             GameObject.Find("Gyro").gameObject.GetComponent<RawImage>().color = deSelected;
-			GameObject.Find("Main Camera").gameObject.GetComponent<driftTest>().enabled = false;
+			GameObject.Find("Main Camera").gameObject.GetComponent<CameraControl3>().enabled = false;
 			GameObject.Find("Main Camera").gameObject.GetComponent<CameraTouch>().enabled = true;
 
         }
