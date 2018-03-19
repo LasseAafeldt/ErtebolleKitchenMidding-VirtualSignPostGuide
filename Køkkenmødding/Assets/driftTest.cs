@@ -35,6 +35,9 @@ public class driftTest : MonoBehaviour
         cameraContainer.transform.position = transform.position;
         transform.SetParent(cameraContainer.transform);
         gyroEnabled = EnableGyro();
+		newRot = gyro.attitude * rot;
+		oldRot = newRot;
+
         /*if (!EnableGyro())
         {
             show the UI element here
@@ -47,22 +50,31 @@ public class driftTest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+	void Update()
     {
+		//Debug.Log ("camconfig active = "+!HierarchyHandler.camConfig);
         if (gyroEnabled)
         {
-            StartCoroutine(driftDetermination());
+            //StartCoroutine(driftDetermination());
             //transform.localRotation = gyro.attitude * rot * Quaternion.Inverse(previousRotation);
             Quaternion gyroPlusRot = gyro.attitude * rot;
             if(SceneManager.GetActiveScene().name == "Midding")
             {
-                StartCoroutine(continousRotation());
+                //StartCoroutine(continousRotation());
+				//continousRotation();
                 //transform.localEulerAngles = actualRot.eulerAngles + driftRotation.eulerAngles;
-                transform.localRotation = actualRot * Quaternion.Inverse(driftRotation); // * rot
+				//transform.localRotation = (transform.localRotation * Quaternion.Inverse(rot))
+				//	* actualRot * rot; //* Quaternion.Inverse(driftRotation) * rot;
+				//transform.localRotation = gyro.attitude;
+				oldRot = newRot;
+				newRot = gyro.attitude;
+				//transform.localRotation = transform.localRotation * Quaternion.Inverse(oldRot) * newRot;
+				//transform.localRotation = newRot * Quaternion.Inverse(oldRot) * transform.localRotation;
+				transform.localRotation = newRot * rot;
             }
             if (SceneManager.GetActiveScene().name == "HuntingGame")
             {
-                transform.localEulerAngles = gyroPlusRot.eulerAngles + driftRotation.eulerAngles;
+                //transform.localEulerAngles = gyroPlusRot.eulerAngles + driftRotation.eulerAngles;
                 /*if(conRot == true)
                 {
                     StopCoroutine(continousRotation());
@@ -80,8 +92,10 @@ public class driftTest : MonoBehaviour
             gyro = Input.gyro;
             gyro.enabled = true;
 
-            cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
-            rot = new Quaternion(0, 0, 1, 0);
+            //cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+			//rot = Quaternion.Euler(0f, 0f, 180f);
+			cameraContainer.transform.rotation = Quaternion.Euler(270f, 0f, 0f)*Quaternion.Euler(0f, 0f, 180f);
+			rot = Quaternion.Euler(0f, 0f, 0f);
 
             return true;
         }
@@ -97,17 +111,17 @@ public class driftTest : MonoBehaviour
         }
         else
         {
-            oldRotation = transform.rotation;
+			oldRotation = gyro.attitude;
         }
         yield return 0;
-        currentRotation = transform.rotation;
+		currentRotation = gyro.attitude;
         angle = Quaternion.Angle(oldRotation, currentRotation);
         if(angle <= driftThreshold)
         {
             drift = true;
             //adding drift into driftRotation veriable continously
             //driftRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
-            driftRotation = (oldRotation * currentRotation) * driftRotation;
+            //driftRotation = (oldRotation * currentRotation) * driftRotation;
         }
         else if(angle > driftThreshold)
         {
@@ -117,18 +131,21 @@ public class driftTest : MonoBehaviour
         wasCalled = false;
     }
 
-    IEnumerator continousRotation()
+    //IEnumerator continousRotation()
+	void continousRotation()
     {
         conRot = true;
+
         if(SceneManager.GetActiveScene().name == "Midding" && !HierarchyHandler.camConfig)
         {
-            if(oldRotation != null)
-            {
-                actualRot.eulerAngles = oldRotation.eulerAngles - newRot.eulerAngles; 
-            }
-            newRot = gyro.attitude;
-            yield return 0;
-            oldRotation = newRot;
+			oldRot = newRot;
+			newRot = gyro.attitude;
+
+            //actualRot.eulerAngles = oldRotation.eulerAngles - newRot.eulerAngles; 
+			actualRot =  newRot * Quaternion.Inverse(oldRot);
+			Debug.Log ("actul rotation =" + actualRot);
+            
+            //yield return 0;
         }
     }
     /*IEnumerator driftDetermination() //determines if there is drift and prints true if there is and false if there is not

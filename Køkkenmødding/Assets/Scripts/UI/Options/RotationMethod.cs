@@ -10,6 +10,8 @@ public class RotationMethod : MonoBehaviour
     public static bool gyro;
     public Color selected;
     public Color deSelected;
+	public GameObject FingerObj;
+	public GameObject GyroObj;
     // Use this for initialization
     void Start()
     {
@@ -56,8 +58,10 @@ public class RotationMethod : MonoBehaviour
             CheckGyro();
             Debug.Log("gyro");
 
-            gameObject.transform.parent.gameObject.GetComponent<RawImage>().color = selected;
+			GameObject.Find("Gyro").gameObject.transform.gameObject.GetComponent<RawImage>().color = selected;
             GameObject.Find("Finger").gameObject.GetComponent<RawImage>().color = deSelected;
+			GameObject.Find("Main Camera").gameObject.GetComponent<driftTest>().enabled = true;
+			GameObject.Find("Main Camera").gameObject.GetComponent<CameraTouch>().enabled = false;
 
         }
 
@@ -67,8 +71,10 @@ public class RotationMethod : MonoBehaviour
             CheckGyro();
             Debug.Log("finger");
 
-            gameObject.transform.parent.gameObject.GetComponent<RawImage>().color = selected;
+			GameObject.Find("Finger").gameObject.transform.gameObject.GetComponent<RawImage>().color = selected;
             GameObject.Find("Gyro").gameObject.GetComponent<RawImage>().color = deSelected;
+			GameObject.Find("Main Camera").gameObject.GetComponent<driftTest>().enabled = false;
+			GameObject.Find("Main Camera").gameObject.GetComponent<CameraTouch>().enabled = true;
 
         }
     }

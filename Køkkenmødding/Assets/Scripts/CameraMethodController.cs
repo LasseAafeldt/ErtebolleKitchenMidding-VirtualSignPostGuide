@@ -7,6 +7,7 @@ public class CameraMethodController : MonoBehaviour {
     public Button swipe;
     public Button gyro;
     public static bool gyroscopeOn;
+	RotationMethod rotMeth;
 	// Use this for initialization
 	void Start () {
         gyroscopeOn = true;
@@ -31,13 +32,13 @@ public class CameraMethodController : MonoBehaviour {
     {
         if (gyroscopeOn) //CameraControl3
         {
-			gameObject.GetComponent<CameraControl3>().enabled = true;
-			gameObject.GetComponent<CameraRotation>().enabled = false;
+			gameObject.GetComponent<driftTest>().enabled = true;
+			gameObject.GetComponent<CameraTouch>().enabled = false;
         }
         if (!gyroscopeOn)
         {
-			gameObject.GetComponent<CameraControl3>().enabled = false;
-            gameObject.GetComponent<CameraRotation>().enabled = true;
+			gameObject.GetComponent<driftTest>().enabled = false;
+			gameObject.GetComponent<CameraTouch>().enabled = true;
         }
     }
 }

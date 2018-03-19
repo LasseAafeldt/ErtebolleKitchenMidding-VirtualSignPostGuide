@@ -148,7 +148,7 @@ fc89a31f248eb512f54949f4f5088a5a Assembly-CSharp.dll:.ArrowBack
 43c4aa1430d9b12e0c47b93235ead657 Assembly-CSharp.dll:.ShootArrow
 9011d9649dd909b80279514d47e563f1 Assembly-CSharp.dll:.AudioHandler
 fc89a31f248eb512f54949f4f5088a5a Assembly-CSharp.dll:.GameOver
-2f087677d296636f3acfe481e4e5ede5 Assembly-CSharp.dll:.RotationMethod
+279e0d6635a3893823de6b81eab79bf1 Assembly-CSharp.dll:.RotationMethod
 8b9f05e49e19b6f3202c3e211aaeb09b Assembly-CSharp.dll:.OpenOptions
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
