@@ -57,7 +57,8 @@ public class driftTest : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "Midding")
             {
                 StartCoroutine(continousRotation());
-                transform.localEulerAngles = actualRot.eulerAngles + driftRotation.eulerAngles;
+                //transform.localEulerAngles = actualRot.eulerAngles + driftRotation.eulerAngles;
+                transform.localRotation = actualRot * Quaternion.Inverse(driftRotation); // * rot
             }
             if (SceneManager.GetActiveScene().name == "HuntingGame")
             {
@@ -90,7 +91,14 @@ public class driftTest : MonoBehaviour
     IEnumerator driftDetermination()
     {
         wasCalled = true;
-        oldRotation = transform.rotation;
+        if(currentRotation != null)
+        {
+            oldRotation = currentRotation;
+        }
+        else
+        {
+            oldRotation = transform.rotation;
+        }
         yield return 0;
         currentRotation = transform.rotation;
         angle = Quaternion.Angle(oldRotation, currentRotation);
@@ -98,7 +106,8 @@ public class driftTest : MonoBehaviour
         {
             drift = true;
             //adding drift into driftRotation veriable continously
-            driftRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
+            //driftRotation.eulerAngles += oldRotation.eulerAngles - currentRotation.eulerAngles;
+            driftRotation = (oldRotation * currentRotation) * driftRotation;
         }
         else if(angle > driftThreshold)
         {
