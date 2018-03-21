@@ -32,13 +32,13 @@ public class SecretVoice : MonoBehaviour {
                 yield break;
             }
             currentClicks = clicks - startClicks;
-            Debug.Log("Current Clicks " + currentClicks);
+            //Debug.Log("Current Clicks " + currentClicks);
             startTime -= Time.deltaTime;
             if(currentClicks >= clickTimes)
             {
                 secretVoiceEnabled = true;
                 disableButton.SetActive(true);
-                Debug.Log("secrets = True");
+                //Debug.Log("secrets = True");
             }
             yield return null;
         }
