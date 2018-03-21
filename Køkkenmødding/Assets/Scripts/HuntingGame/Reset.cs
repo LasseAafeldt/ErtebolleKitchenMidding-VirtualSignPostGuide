@@ -27,7 +27,7 @@ public class Reset : MonoBehaviour {
     {
         if (end.alpha == 1)
         {
-            Debug.Log("Working as intended");
+            //Debug.Log("Working as intended");
             HuntingHandler.tutorial.SetActive(true);
 
             //reset timer
@@ -41,7 +41,7 @@ public class Reset : MonoBehaviour {
             canvas.alpha = 0;
             canvas.interactable = false;
             canvas.blocksRaycasts = false;
-            Debug.Log("End was disabled");
+            //Debug.Log("End was disabled");
         }
     }
 }

@@ -29,7 +29,7 @@ public class OpenModelInfo : MonoBehaviour {
         {
             gameBut.onClick.AddListener(delegate { click(); });
         }
-        Debug.Log("running start!!!");
+        //Debug.Log("running start!!!");
         modelPosition = GameObject.Find("ModelPosition").transform;
         checkLanguage();
         canvas = GameObject.Find("WorldSpace").transform.GetChild(0).GetComponent<CanvasGroup>();
@@ -59,7 +59,7 @@ public class OpenModelInfo : MonoBehaviour {
             MogensText.setText();
             model = gameObject.transform.parent.name;
             setText();
-            Debug.Log(model);
+            //Debug.Log(model);
             selectPrefab();
             GameObject clone = Instantiate((GameObject)prefab, position, rotation, GameObject.Find("ModelPosition").transform);
         }
@@ -74,7 +74,7 @@ public class OpenModelInfo : MonoBehaviour {
             MogensText.setText();
             model = gameObject.transform.parent.name;
             setText();
-            Debug.Log(model);
+            //Debug.Log(model);
             selectPrefab();
             GameObject clone = Instantiate( (GameObject)prefab, position, rotation,GameObject.Find("ModelPosition").transform);  
         }
@@ -89,7 +89,7 @@ public class OpenModelInfo : MonoBehaviour {
         }
         if(model == "Keramik")
         {
-            Debug.Log("test");
+            //Debug.Log("test");
             prefab = Resources.Load("ModKeramik");
         }
         if(model == "Kam")
@@ -102,7 +102,7 @@ public class OpenModelInfo : MonoBehaviour {
         }
         if(model == "Fisk")
         {
-            Debug.Log("Entered!!!");
+            //Debug.Log("Entered!!!");
             prefab = Resources.Load("ModFisk");
         }
         if(model == "Hund")
@@ -148,11 +148,11 @@ public class OpenModelInfo : MonoBehaviour {
     {
         if(model == gameObject.transform.parent.name || model == "0" || SceneManager.GetActiveScene().name == "HuntingGame")
         {
-            Debug.Log("running hideUIInfo()");
+            //Debug.Log("running hideUIInfo()");
             for (int i = 0; i < modelPosition.childCount; i++)
             {
                 Destroy(modelPosition.GetChild(0).gameObject);
-                Debug.Log("I Destroyed a Child");
+                //Debug.Log("I Destroyed a Child");
             }
             AudioHandler.voice = false;
             Camera.main.GetComponent<AudioSource>().Stop();
@@ -172,12 +172,12 @@ public class OpenModelInfo : MonoBehaviour {
         if(ChooseLanguage.language == 0)
         {
             danish = true;
-            Debug.Log("Danish");
+            //Debug.Log("Danish");
         }
         else
         {
             danish = false;
-            Debug.Log("English");
+            //Debug.Log("English");
         }
     }
 

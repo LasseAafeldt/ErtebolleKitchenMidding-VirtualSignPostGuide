@@ -24,7 +24,7 @@ public class AudioHandler : MonoBehaviour {
         model = OpenModelInfo.model;
         voice = true;
         GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 0;
-        Debug.Log("voice = " + voice);
+        //Debug.Log("voice = " + voice);
         StartCoroutine(selectSound());
 
     }

@@ -38,8 +38,8 @@ public class ShootArrow : MonoBehaviour {
             dir = transform.TransformDirection(0, 0, 1* speed);
             arrowClone.transform.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
             arrowsShot++;
-            Debug.Log("Arrows fired = " + arrowsShot);
-            Debug.Log("max arrows = " + arrowAmount);
+            //Debug.Log("Arrows fired = " + arrowsShot);
+            //Debug.Log("max arrows = " + arrowAmount);
             //updateQuiver();
             arrowBack.alpha = 1;
         }

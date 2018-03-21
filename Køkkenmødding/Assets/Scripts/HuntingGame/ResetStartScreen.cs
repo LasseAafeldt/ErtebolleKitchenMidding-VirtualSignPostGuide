@@ -6,7 +6,7 @@ public class ResetStartScreen : MonoBehaviour {
 
     void OnApplicationQuit()
     {
-        Debug.Log("I have quit");
+        //Debug.Log("I have quit");
         PlayerPrefs.SetInt("pFirst", 0);
     }
 }

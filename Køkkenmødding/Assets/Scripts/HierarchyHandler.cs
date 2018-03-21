@@ -35,7 +35,7 @@ public class HierarchyHandler : MonoBehaviour {
     public void CamConfig()
     {
         camConfig = !camConfig;
-        Debug.Log("cam config = " + camConfig);
+        //Debug.Log("cam config = " + camConfig);
         if (camConfig)
         {
             camConfigCanvas.SetActive(true);

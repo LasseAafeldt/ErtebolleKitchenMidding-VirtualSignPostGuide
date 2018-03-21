@@ -34,7 +34,7 @@ public class CountDown : MonoBehaviour {
     public void resetTime()
     {
         time = tempTime;
-        Debug.Log("time was reset");
+        //Debug.Log("time was reset");
     }
 
     public IEnumerator end()

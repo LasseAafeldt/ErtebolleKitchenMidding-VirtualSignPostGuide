@@ -11,7 +11,7 @@ public class ToggleIcons : MonoBehaviour {
         //HierarchyHandler.optionsCanvas.SetActive(true);
         mute = HierarchyHandler.mute;
         speaker = HierarchyHandler.speaker;
-        Debug.Log("start status = " + mute);
+        //Debug.Log("start status = " + mute);
     }
 	
 	// Update is called once per frame

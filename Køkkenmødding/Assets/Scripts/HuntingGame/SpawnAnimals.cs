@@ -36,7 +36,7 @@ public class SpawnAnimals : MonoBehaviour {
     {
         GameObject deerClone = Instantiate(prefab, chooseSpawn().position, chooseSpawn().transform.rotation); //do something about the toration
         ++currentAnimals;
-        Debug.Log("animals: " + currentAnimals);
+        //Debug.Log("animals: " + currentAnimals);
 
 
     }

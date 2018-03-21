@@ -16,7 +16,7 @@ public class IntroText : MonoBehaviour {
         isFirst = true;
         canvas = gameObject.GetComponent<CanvasGroup>();
         canvasMogensintro = GameObject.Find("MogensIntro").GetComponent<CanvasGroup>();
-        Debug.Log("pFirst is" + PlayerPrefs.GetInt("pFirst"));
+        //Debug.Log("pFirst is" + PlayerPrefs.GetInt("pFirst"));
         if(PlayerPrefs.GetInt("pFirst") == 1)
         {
             click();
@@ -70,7 +70,7 @@ public class IntroText : MonoBehaviour {
         canvas.blocksRaycasts = false;
         GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder = 0;
         GameObject.Find("OptionsButtonCanvas").GetComponent<Canvas>().sortingOrder = 0;
-        Debug.Log("sort order = "+ GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder);
+        //Debug.Log("sort order = "+ GameObject.Find("OptionsCanvas").GetComponent<Canvas>().sortingOrder);
 
         if(PlayerPrefs.GetInt("pFirst") == 0)
         {
@@ -83,7 +83,7 @@ public class IntroText : MonoBehaviour {
     }
     void OnApplicationQuit()
     {
-        Debug.Log("I have quit");
+        //Debug.Log("I have quit");
         PlayerPrefs.SetInt("pFirst", 0);
     }
     private void OnApplicationFocus(bool focus)

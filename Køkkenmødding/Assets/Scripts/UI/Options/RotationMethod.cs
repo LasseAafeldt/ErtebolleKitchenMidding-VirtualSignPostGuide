@@ -27,7 +27,7 @@ public class RotationMethod : MonoBehaviour
     {
         gyro = false;
         CheckGyro();
-        Debug.Log("finger");
+        //Debug.Log("finger");
 
         GameObject.Find("Finger").gameObject.GetComponent<RawImage>().color = selected;
         GameObject.Find("Gyro").gameObject.GetComponent<RawImage>().color = deSelected;
@@ -58,7 +58,7 @@ public class RotationMethod : MonoBehaviour
         {
             gyro = true;
             CheckGyro();
-            Debug.Log("gyro");
+            //Debug.Log("gyro");
 
 			GameObject.Find("Gyro").gameObject.transform.gameObject.GetComponent<RawImage>().color = selected;
             GameObject.Find("Finger").gameObject.GetComponent<RawImage>().color = deSelected;
@@ -71,7 +71,7 @@ public class RotationMethod : MonoBehaviour
         {
             gyro = false;
             CheckGyro();
-            Debug.Log("finger");
+            //Debug.Log("finger");
 
 			GameObject.Find("Finger").gameObject.transform.gameObject.GetComponent<RawImage>().color = selected;
             GameObject.Find("Gyro").gameObject.GetComponent<RawImage>().color = deSelected;
