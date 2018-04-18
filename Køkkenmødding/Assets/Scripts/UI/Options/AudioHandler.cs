@@ -10,6 +10,8 @@ public class AudioHandler : MonoBehaviour {
     AudioClip[] audioArray;
     AudioClip[] audioArrayEnglish;
 
+    bool hasPlayed = false;
+
     string model;
     //AudioClip audio;
 	void Start () {
@@ -21,10 +23,16 @@ public class AudioHandler : MonoBehaviour {
 	
     void click()
     {
+        if (Camera.main.GetComponent<AudioSource>().isPlaying)
+        {
+            return;
+        }
         model = OpenModelInfo.model;
         voice = true;
         GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 0;
+        GameObject.Find("speechbubble").GetComponent<CanvasGroup>().interactable = false;
         //Debug.Log("voice = " + voice);
+
         StartCoroutine(selectSound());
 
     }
@@ -36,8 +44,9 @@ public class AudioHandler : MonoBehaviour {
         {
             for(int i = 0; i < audioArray.Length; i++)
             {
-                if(model == audioArray[i].name)
+                if(model == audioArray[i].name && hasPlayed == false)
                 {
+                    Debug.Log("secrets = " + SecretVoice.secretVoiceEnabled);
                     if (SecretVoice.secretVoiceEnabled)
                     {
                         Camera.main.GetComponent<AudioSource>().clip = audioArray[i+1];
@@ -48,11 +57,18 @@ public class AudioHandler : MonoBehaviour {
                         Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
                         currentClip = audioArray[i];
                     }
-                    Camera.main.GetComponent<AudioSource>().Play();
-				    audioPlayed++;
+                    if(hasPlayed == false)
+                    {
+                        Camera.main.GetComponent<AudioSource>().Play();
+                        hasPlayed = true;
+				        audioPlayed++;
+                    }
                     yield return new WaitForSeconds(currentClip.length);
                     voice = false;
                     GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
+                    GameObject.Find("speechbubble").GetComponent<CanvasGroup>().interactable = true;
+                    hasPlayed = false;
+                    yield break;
                 }
             }
         }
@@ -60,13 +76,14 @@ public class AudioHandler : MonoBehaviour {
         {
             for (int i = 0; i < audioArrayEnglish.Length; i++)
             {
-                Debug.Log(audioArrayEnglish[i].name);
                 if (model == audioArrayEnglish[i].name)
                 {
-                    Camera.main.GetComponent<AudioSource>().clip = audioArray[i];
+                    Debug.Log("Audio Array contains: " + audioArrayEnglish.Length);
+                    Debug.Log(audioArrayEnglish[i].name);
+                    Camera.main.GetComponent<AudioSource>().clip = audioArrayEnglish[i];
                     Camera.main.GetComponent<AudioSource>().Play();
                     audioPlayed++;
-                    yield return new WaitForSeconds(audioArray[i].length);
+                    yield return new WaitForSeconds(audioArrayEnglish[i].length);
                     voice = false;
                     GameObject.Find("speechbubble").GetComponent<CanvasGroup>().alpha = 1;
                 }
