@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\DisableOptions.cs" />
     <Compile Include="Assets\driftTest.cs" />
+    <Compile Include="Assets\FPSCounter.cs" />
     <Compile Include="Assets\Scripts\CameraMethodController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\cameraTransform.cs" />
