@@ -7,7 +7,7 @@ public class HierarchyHandler : MonoBehaviour {
     // Use this for initialization
     //public static GameObject optionsCanvas;
     //public static GameObject cookingFacts;
-    public static GameObject closeoverlay;
+    //public static GameObject closeoverlay;
     public static GameObject mute;
     public static GameObject speaker;
     public static GameObject gyroCanvas;
@@ -17,7 +17,7 @@ public class HierarchyHandler : MonoBehaviour {
 	void Start () {
         //optionsCanvas = GameObject.Find("OptionsCanvas");
         //cookingFacts = GameObject.Find("CookingFacts");
-        closeoverlay = GameObject.Find("CloseOverlay");
+        //closeoverlay = GameObject.Find("CloseOverlay");
 
         mute = GameObject.Find("MuteIcon");
         speaker = GameObject.Find("SpeakerIcon");
@@ -26,7 +26,7 @@ public class HierarchyHandler : MonoBehaviour {
         gyroCanvas.SetActive(false);
         //optionsCanvas.SetActive(false);
         //cookingFacts.SetActive(false);
-        closeoverlay.SetActive(false);
+        //closeoverlay.SetActive(false);
         camConfig = false;
         //optionsCanvasGrp = GameObject.Find("ScreenSpace").GetComponent<CanvasGroup>();
         //Debug.Log("i have run");     

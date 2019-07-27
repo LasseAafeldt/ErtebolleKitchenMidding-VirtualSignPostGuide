@@ -13,7 +13,7 @@ public class CloseOptions : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void click()
+    public void click()
     {
         //HierarchyHandler.optionsCanvas.SetActive(false);
         canvas.alpha = 0;

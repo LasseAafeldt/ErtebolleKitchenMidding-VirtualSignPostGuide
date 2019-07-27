@@ -12,6 +12,7 @@ public class CameraControl3 : MonoBehaviour
     private GameObject cameraContainer;
     private Quaternion rot;
     private Quaternion previousAtt;
+    private float startRotZ;
 
     // Use this for initialization
     void Start()
@@ -21,10 +22,15 @@ public class CameraControl3 : MonoBehaviour
         transform.SetParent(cameraContainer.transform);
         gyroEnabled = EnableGyro();
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        try { previousAtt = gyro.attitude; }
+        try
+        {
+            previousAtt = gyro.attitude;
+            startRotZ = previousAtt.z;
+        }
         catch { }
         Vector3 test = new Vector3(0.1f, 0.2f, 0.3f);
-        Debug.Log("length = " + test.magnitude);
+        //Debug.Log("length = " + test.magnitude);
+
     }
 
     // Update is called once per frame
@@ -40,6 +46,7 @@ public class CameraControl3 : MonoBehaviour
                 Quaternion tempOld = previousAtt * rot;
                 Quaternion targetTranslation = Quaternion.Inverse(tempOld) * tempNew;
                 Quaternion targetRot = transform.localRotation * targetTranslation;
+                Quaternion limitTargetRot = new Quaternion(targetRot.x, targetRot.y, startRotZ, targetRot.w);
                 transform.localRotation = targetRot;
             }
 
@@ -64,4 +71,9 @@ public class CameraControl3 : MonoBehaviour
         return false;
     }
 
+    public void resetCam()
+    {
+        transform.localRotation = transform.parent.transform.rotation;
+        previousAtt = gyro.attitude;
+    }
 }
