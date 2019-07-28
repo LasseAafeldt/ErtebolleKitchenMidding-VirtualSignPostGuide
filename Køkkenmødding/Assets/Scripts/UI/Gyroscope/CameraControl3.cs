@@ -75,5 +75,6 @@ public class CameraControl3 : MonoBehaviour
     {
         transform.localRotation = transform.parent.transform.rotation;
         previousAtt = gyro.attitude;
+        startRotZ = previousAtt.z;
     }
 }
