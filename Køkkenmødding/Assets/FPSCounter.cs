@@ -14,6 +14,6 @@ public class FPSCounter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float fps = 1 / Time.deltaTime;
-        tex.text = "FPS = " + fps.ToString();
+        tex.text = "FPS = " + Mathf.FloorToInt(fps).ToString();
 	}
 }
