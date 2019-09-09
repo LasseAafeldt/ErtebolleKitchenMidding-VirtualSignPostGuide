@@ -1,0 +1,10 @@
+Midding app:
+Keystore password: MTA17733
+Key: udgivelses key
+password: MTA17733
+----------------------- 64 bit is required by google now ----------------------
+
+Google console login:
+E-mail: vesthimmerlandsmuseum@gmail.com
+Password: kulturarvstjenesten
+
